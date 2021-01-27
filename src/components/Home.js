@@ -1,11 +1,18 @@
 import React, {Component} from 'react';
+import Grid from './Grid';
 
-class Home extends Component {
+export default class Home extends Component {
   render() {
     return(
-      <section className="home">
-        
-      </section>
+      <Grid className="home" gridProps={{
+        gridTemp: "",
+        gridCols: "",
+        gridRows: "",
+        colGap: "",
+        rowGap: "",
+      }}>
+
+      </Grid>
     );
   };
 };
