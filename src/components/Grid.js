@@ -2,11 +2,13 @@ import React from 'react';
 
 export default function Grid(props) {
   return(
-    <section className={`${props.className} 
-      ${props.gridProps.gridTemp} 
-      ${props.gridProps.gridRows} 
+    <section className={`${props.className}
+      ${props.gridProps.gridTemp}
+      ${props.gridProps.gridCols}
+      ${props.gridProps.gridRows}
       ${props.gridProps.colGap}
-      ${props.gridProps.rowGap}`}>
+      ${props.gridProps.rowGap}`
+    }>
       {props.children}
     </section>
   );
