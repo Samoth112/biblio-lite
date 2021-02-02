@@ -1,0 +1,23 @@
+:root {
+  --grid-template-unit: minmax(0, 1fr);
+};
+
+.grid {display: grid}
+
+/* gridTemp */
+@mixin grid-rows-x-cols($rows, $cols) {
+  grid-template: repeat($rows, var(--grid-template-unit)) / repeat($cols, var(--grid-template-unit))
+}
+
+.grid-temp-1x3 {@include grid-rows-x-cols(1, 3)};
+.grid-temp-1x12 {@include grid-rows-x-cols(1, 12)};
+
+/* gridAuto */
+.grid-auto-rows-max-content {grid-auto-rows: max-content};
+.grid-auto-rows-max-content-1fr {grid-auto-rows: max-content 1fr};
+
+/* gap */
+.grid-row-gap-1rem {grid-row-gap: 1rem};
+.grid-row-gap-2rem {grid-row-gap: 2rem};
+
+.grid-col-gap-2em {grid-column-gap: 2em};
