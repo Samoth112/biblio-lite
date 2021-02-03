@@ -1,6 +1,8 @@
+@use '../mixins';
+
 .home {
+  @include mixins.grid;
   box-sizing: border-box;
 	overflow: scroll;
-  position: relative;
   width: 100%;
 }
