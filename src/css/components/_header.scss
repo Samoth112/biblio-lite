@@ -1,0 +1,5 @@
+@use '../mixins';
+
+.header {
+  @include mixins.grid;
+}
