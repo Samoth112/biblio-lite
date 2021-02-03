@@ -2,8 +2,6 @@
   --grid-template-unit: minmax(0, 1fr);
 };
 
-.grid {display: grid}
-
 /* gridTemp */
 @mixin grid-rows-x-cols($rows, $cols) {
   grid-template: repeat($rows, var(--grid-template-unit)) / repeat($cols, var(--grid-template-unit))
