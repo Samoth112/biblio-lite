@@ -9,13 +9,13 @@ export default function GridItem(props) {
     // include 'grid' in className.
     // GridItem components should always have at least one 
     // ancestor this is a Grid component.
-    <section className={`${props.className}
+    <div className={`${props.className}
       ${props.gridItemProps.gridRow}
       ${props.gridItemProps.gridCol}
       ${props.gridItemProps.gridArea}`
     }>
 
 
-    </section>
+    </div>
   );
 };
