@@ -6,8 +6,10 @@ export default function Grid(props) {
     // that define the grid-template,
     // grid-auto-rows, grid-auto-columns, and
     // the gap css grid properties.
-    // these are the properties that currently
-    // define grids.
+    // These are the properties that currently
+    // define grid containers.
+    // Nested Grid components with no other grid items
+    // between them should not be wrapped in GridItem components.
     <section className={`${props.className} grid
       ${props.gridProps.gridTemp}
       ${props.gridProps.gridAuto}
