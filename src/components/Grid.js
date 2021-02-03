@@ -10,7 +10,7 @@ export default function Grid(props) {
     // define grid containers.
     // Nested Grid components with no other grid items
     // between them should not be wrapped in GridItem components.
-    <section className={`${props.className} grid
+    <section className={`${props.className}
       ${props.gridProps.gridTemp}
       ${props.gridProps.gridAuto}
       ${props.gridProps.gap}`
