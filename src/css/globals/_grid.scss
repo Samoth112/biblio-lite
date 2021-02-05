@@ -1,10 +1,10 @@
 :root {
-  --grid-template-unit: minmax(0, 1fr);
+  --grid-unit: minmax(0, 1fr);
 };
 
 /* gridTemp */
 @mixin grid-rows-x-cols($rows, $cols) {
-  grid-template: repeat($rows, var(--grid-template-unit)) / repeat($cols, var(--grid-template-unit))
+  grid-template: repeat($rows, var(--grid-unit)) / repeat($cols, var(--grid-unit))
 }
 
 .grid-temp-1x3 {@include grid-rows-x-cols(1, 3)};
