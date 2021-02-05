@@ -1,0 +1,11 @@
+:root {
+  --grid-unit: minmax(0, 1fr);
+};
+
+/* gridRow */
+.row1 {grid-row: 1 / span 1};
+
+/* gridCol */
+.col1 {grid-row: 1 /span 1};
+
+/* gridArea */
