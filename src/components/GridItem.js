@@ -14,8 +14,7 @@ export default function GridItem(props) {
       ${props.gridItemProps.gridCol}
       ${props.gridItemProps.gridArea}`
     }>
-
-
+      {props.children}
     </div>
   );
 };

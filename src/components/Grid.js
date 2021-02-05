@@ -11,11 +11,17 @@ export default function Grid(props) {
     // Nested Grid components with no other grid items
     // between them should not be wrapped in GridItem components.
     <section className={`${props.className}
-      ${props.gridProps.gridTemp}
-      ${props.gridProps.gridAuto}
-      ${props.gridProps.gap}`
-    }>
+      ${props.gridTemp}
+      ${props.gridAuto}
+      ${props.gap}`}
+    >
       {props.children}
     </section>
   );
+};
+
+Grid.defaultProps = {
+  gridTemp: "",
+  gridAuto: "",
+  gap: ""
 };
