@@ -3,7 +3,7 @@ import './App.css';
 
 function App() {
   return (
-   <Home />
+    <Home gridAuto="grid-auto-rows-max-content" />
   );
 }
 export default App;
