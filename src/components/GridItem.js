@@ -2,17 +2,12 @@ import React from 'react';
 
 export default function GridItem(props) {
   return(
-    // gridItemProps values should be class names that
-    // define the grid-row, grid-column, and grid-area
-    // css grid-item css properites. 
-    // If a GridItem should itself also be a grid container,
-    // include 'grid' in className.
+    // Props values should be class names that define the grid-row, 
+    // grid-column, and grid-area css properites that place a GridItem
+    // within its parent Grid component. 
     // GridItem components should always have at least one 
     // ancestor this is a Grid component.
-    <div className={`${props.gridRow}
-      ${props.gridCol}
-      ${props.gridArea}`
-    }>
+    <div className={`${props.gridRow} ${props.gridCol} ${props.gridArea}`}>
       {props.children}
     </div>
   );
