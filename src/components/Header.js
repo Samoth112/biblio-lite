@@ -3,8 +3,12 @@ import Grid from './Grid'
 
 export default function Header(props) {
   return(
-    // refer to Grid.js to see full list of gridProps
-    <Grid className='header' gridAuto='grid-auto-rows-max-content-1fr'>
+    // Unlike Home.js, which is unlikely to be reused, Header.js more than likely
+    // will be. To keep this container flexible and able to accomodate any grid, 
+    // whether it be defined by gridTemp, gridAuto, or gridGap, each prop should be 
+    // included below, to be assigned a value through the props set on <Header />.
+    // For the props not set, they will be assigned a default value through defaultProps.
+    <Grid className='header' gridTemp={props.gridTemp} gridAuto={props.gridAuto} gridGap={props.gridGap}>
       {props.children}
     </Grid>
   );
