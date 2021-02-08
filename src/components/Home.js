@@ -16,12 +16,16 @@ export default function Home(props) {
     <Grid className='home' gridTemp={props.gridTemp} gridAuto={props.gridAuto} gridGap={props.gridGap}>
       <Header gridAuto="grid-auto-rows-max-content-1fr">
         <GridItem gridRow="row1" gridCol="col1">
-          <Nav className="header__nav">
-
+          <Nav className="header__nav" gridTemp="grid-temp-1x3">
+            <GridItem gridRow="row1" gridCol="col2">
+              <p className="">
+                Biblio
+              </p>
+            </GridItem>
           </Nav>
         </GridItem>
         <GridItem gridRow="row2" gridCol="col1">
-          <Banner>
+          <Banner gridTemp="grid-temp-1x12">
 
           </Banner>
         </GridItem>
