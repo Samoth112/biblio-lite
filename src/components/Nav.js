@@ -9,7 +9,7 @@ export default function Nav(props) {
   // use props.ClassName, which will be something like "header__nav" or "footer__nav."
   return(
     <Grid className={props.className} gridTemp={props.gridTemp} gridAuto={props.gridAuto} gridGap={props.gridGap}>
-
+      {props.children}
     </Grid>
   );
 };
