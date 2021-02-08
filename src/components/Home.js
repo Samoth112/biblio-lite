@@ -2,6 +2,8 @@ import React from 'react';
 import Grid from './Grid';
 import GridItem from './GridItem';
 import Header from './Header';
+import Nav from './Nav';
+import Banner from './Banner';
 
 export default function Home(props) {
   return(
@@ -13,7 +15,15 @@ export default function Home(props) {
     // development, as Home's grid could be defined differently later on.
     <Grid className='home' gridTemp={props.gridTemp} gridAuto={props.gridAuto} gridGap={props.gridGap}>
       <Header gridAuto="grid-auto-rows-max-content-1fr">
-        <GridItem gridRow="row1" gridCol= "col1">
+        <GridItem gridRow="row1" gridCol="col1">
+          <Nav className="header__nav">
+
+          </Nav>
+        </GridItem>
+        <GridItem gridRow="row2" gridCol="col1">
+          <Banner>
+
+          </Banner>
         </GridItem>
       </Header>
     </Grid>

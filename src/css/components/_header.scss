@@ -3,3 +3,7 @@
 .header {
   @include mixins.grid;
 }
+
+.header__nav {
+  @include mixins.grid;
+}
