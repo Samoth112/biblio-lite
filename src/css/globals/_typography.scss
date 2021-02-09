@@ -1,6 +1,13 @@
 @use '../mixins';
 
-/* fonts */
+:root {
+  --fs-default: 1rem;
+}
+
+/* font-family */
 .dm-serif-display {
   @include mixins.dm-serif-display;
 }
+
+/* font-size */
+.fs-2rem {font-size: calc(2 * var(--fs-default))}
