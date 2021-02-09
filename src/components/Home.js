@@ -17,8 +17,8 @@ export default function Home(props) {
       <Header gridAuto="grid-auto-rows-max-content-1fr">
         <GridItem gridRow="row1" gridCol="col1">
           <Nav className="header__nav" gridTemp="grid-temp-1x3">
-            <GridItem gridRow="row1" gridCol="col2">
-              <p className="">
+            <GridItem className="ptb-1rem" gridRow="row1" gridCol="col2">
+              <p className="dm-serif-display fs-2em fw-600 ta-center">
                 Biblio
               </p>
             </GridItem>
