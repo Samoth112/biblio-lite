@@ -14,8 +14,5 @@
 .grid-auto-rows-max-content {grid-auto-rows: max-content};
 .grid-auto-rows-max-content-1fr {grid-auto-rows: max-content 1fr};
 
-/* gap */
-.grid-row-gap-1rem {grid-row-gap: 1rem};
-.grid-row-gap-2rem {grid-row-gap: 2rem};
-
-.grid-col-gap-2em {grid-column-gap: 2em};
+/* gridGap */
+.grid-col-gap-2em {gap: 0 2em};
