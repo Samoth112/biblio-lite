@@ -1,0 +1,6 @@
+@use '../mixins';
+
+/* fonts */
+.dm-serif-display {
+  @include mixins.dm-serif-display;
+}
