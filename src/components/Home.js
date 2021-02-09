@@ -18,15 +18,25 @@ export default function Home(props) {
         <GridItem gridRow="row1" gridCol="col1">
           <Nav className="header__nav" gridTemp="grid-temp-1x3">
             <GridItem gridRow="row1" gridCol="col2" spacing="ptb-1rem">
-              <p className="dm-serif-display fs-2em fw-600 ta-center">
+              {// Utility classes arranged in this order:
+               // font-family, font-size, font-weight, line-height, text-align.
+              }
+              <p className="dm-serif-display fs-2rem fw-600 ta-center">
                 Biblio
               </p>
             </GridItem>
           </Nav>
         </GridItem>
-        <GridItem gridRow="row2" gridCol="col1">
-          <Banner gridTemp="grid-temp-1x12">
-
+        <GridItem gridRow="row2" gridCol="col1" spacing="pt-6rem pr-2rem pl-2rem">
+          <Banner gridTemp="grid-temp-1x12" gridGap="grid-col-gap-2em">
+            <GridItem gridRow="row1" gridCol="col2-span6">
+              <p className="dm-serif-display fs-5rem lh-1em">
+                Enter Your Address to Find Books Near You
+              </p>
+            </GridItem>
+            <GridItem gridRow="row1" gridCol="col8-span3">
+              
+            </GridItem>
           </Banner>
         </GridItem>
       </Header>
