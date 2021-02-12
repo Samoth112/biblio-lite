@@ -1,0 +1,5 @@
+@use '../mixins';
+
+.form {
+  @include mixins.grid;
+}
