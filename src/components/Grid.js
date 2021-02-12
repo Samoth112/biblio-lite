@@ -13,11 +13,16 @@ export default class Grid extends Component {
       <header className={`${this.props.className} ${this.props.gridTemp} ${this.props.gridAuto} ${this.props.gridGap}`}>      
         {this.props.children}
       </header> 
-    } else if(this.props.className.includes('nav')){
+    } else if(this.props.className.includes('__nav') || this.props.className === 'nav'){
       grid =
       <nav className={`${this.props.className} ${this.props.gridTemp} ${this.props.gridAuto} ${this.props.gridGap}`}>      
         {this.props.children}
       </nav>
+    } else if(this.props.className.includes('__form') || this.props.className === 'form'){
+      grid =
+      <form className={`${this.props.className} ${this.props.gridTemp} ${this.props.gridAuto} ${this.props.gridGap}`}>      
+        {this.props.children}
+      </form>
     } else {
       grid =
       <section className={`${this.props.className} ${this.props.gridTemp} ${this.props.gridAuto} ${this.props.gridGap}`}>      
