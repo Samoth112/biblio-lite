@@ -7,9 +7,10 @@ import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import firebase from 'firebase';
+import formReducer from './reducers/formReducer';
 
 const rootReducer = combineReducers({
-
+  form: formReducer
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk));

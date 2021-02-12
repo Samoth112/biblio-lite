@@ -4,6 +4,8 @@ import GridItem from './GridItem';
 import Header from './Header';
 import Nav from './Nav';
 import Banner from './Banner';
+import Form from './Form';
+import Input from './Input';
 
 export default function Home(props) {
   return(
@@ -35,7 +37,9 @@ export default function Home(props) {
               </p>
             </GridItem>
             <GridItem gridRow="row1" gridCol="col8-span3">
-              
+              <Form gridAuto="grid-auto-rows-max-content">
+                <Input type="text" name="address" dataActionType="SET_ADDRESS"/>
+              </Form>
             </GridItem>
           </Banner>
         </GridItem>
@@ -43,3 +47,4 @@ export default function Home(props) {
     </Grid>
   );
 };
+
