@@ -1,15 +1,18 @@
-@use '../mixins';
-
 :root {
   --fs-default: 1rem;
 }
 
 /* font-family */
 .dm-serif-display {
-  @include mixins.dm-serif-display;
+  font-family: 'DM Serif Display';
+};
+
+.roboto-lt {
+  font-family: 'Roboto';
 };
 
 /* font-size */
+.fs-1rem {font-size: var(--fs-default)};
 .fs-2rem {font-size: calc(2 * var(--fs-default))};
 .fs-5rem {font-size: calc(5 * var(--fs-default))};
 

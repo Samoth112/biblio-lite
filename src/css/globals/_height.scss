@@ -1,0 +1,7 @@
+:root {
+  --height-default: 1rem;
+}
+
+.h-3rem {
+  height: calc(3 * var(--height-default));
+}

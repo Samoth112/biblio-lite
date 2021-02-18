@@ -2,6 +2,11 @@
   --grid-unit: minmax(0, 1fr);
 };
 
+.grid {
+  display: grid;
+  position: relative;
+}
+
 /* gridTemp */
 @mixin grid-rows-x-cols($rows, $cols) {
   grid-template: repeat($rows, var(--grid-unit)) / repeat($cols, var(--grid-unit))
@@ -16,3 +21,4 @@
 
 /* gridGap */
 .grid-col-gap-2em {gap: 0 2em};
+.grid-row-gap-2em {gap: 2em 0};

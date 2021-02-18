@@ -1,3 +1,43 @@
 .input {
   position: relative;
 }
+
+.input__input {
+  background-color: transparent;
+  border: 1px solid rgba(0,0,0,0.6);
+  border-radius: 4px;
+  font-size: 1em;
+  height: 100%;
+  padding: 1.25em 1em .25em;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.input__input:focus + label, .input__input:valid + label {
+  color: gray;
+  font-size: .75em;
+  padding: .25rem 1rem;
+}
+
+.input__label {
+  border: 1px solid transparent;
+  font-size: 1em;
+  height: 100%;
+  left: 0;
+  padding: 1em 1em .5em;
+  position: absolute;
+  top: 0;
+  transition: padding .25s, font-size .25s;
+  width: 100%;
+  z-index: 0;
+}
+
+.input__submit {
+  background-color: black;
+  border: none;
+  border-radius: 9999px;
+  color: white;
+  height: 100%;
+  width: 100%;
+}

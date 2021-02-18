@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+INTRODUCTION:
+Biblio-lite employs a component-based design system that relies on reusable or "named" components that are then styled through props using a combination of BEM and utility classes.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+GRID:
+Container components use CSS Grid to define their layout and to easily place child components within them.
 
-## Available Scripts
+Child components use BEM and utility classes to define their style and to further refine their placement within their parent Grid containers.
 
-In the project directory, you can run:
+Grid components strive to be as flexible as possible by allowing grids to be defined however the user would like through the use of utility classes in the grid prop, such as ".grid-temp-1x3" or ".grid-auto-rows-max-content".
 
-### `npm start`
+  export default function Grid(props) {
+    let grid = props.grid ? ` ${props.grid}` : "";
+    let gap = props.gap ? ` ${props.gap}` : "";
+    let padding = props.padding ? ` ${props.padding}` : "";
+    let margin = props.margin ? ` ${props.margin}` : "";
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+    return(
+      <div className={`grid${grid}${gap}${margin}${padding}`}>      
+        {props.children}
+      </div>           
+    );
+  };
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Components that import Grid are also likely to be nested inside another grid. They are passed the same props for Grid shown above as well as additional props that define the rows and columns that they occupy:
 
-### `npm test`
+  export default function Header(props) {
+    return(
+      <header className={`${props.className ? props.className : ""}${props.rows ? ` ${props.rows}` : ""}${props.cols ? ` ${props.cols}` : ""}`}>
+        <Grid grid={props.grid} gap={props.gap} padding={props.padding} margin={props.margin} >
+          {props.children}
+        </Grid>
+      </header>
+    );
+  };
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+REUSABLE VS NAMED COMPONENTS:
+Components are designed with reusability in mind, when it makes most sense. For example, those that act as containers are defined by a reusalbe Grid component.
 
-### `npm run build`
+Those components can themselves be reusable, like the Header or Form components. Components that are likely to be used only once in an application, such as the Home component, are referred to in this system as named components.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+NAMED COMPONENTS ACROSS APPLICATIONS:
+Even though components like Home may only be used once in an application, they are reusable across applications:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  export default function Home(props) {
+    return(
+      <section className='home'>
+        <Grid grid={props.grid} gap={props.gap} padding={props.padding} margin={props.margin} >
+          {props.children}
+        </Grid>
+      </section>
+    );
+  };
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+UTILITY CLASSES:
+Utility classes are named to be as expressive of their value as possible to give readers immediate contextual information.
+For example, take the following classes for font-sizes:
 
-### `npm run eject`
+  .fs-1rem {font-size: var(--fs-default)};
+  .fs-2rem {font-size: calc(2 * var(--fs-default))};
+  .fs-5rem {font-size: calc(5 * var(--fs-default))};
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The actual values (1rem, 2rem, and 5rem) are preferred over labels such as "sm," m," or "l".

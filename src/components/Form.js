@@ -1,18 +1,15 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Grid from './Grid';
 
-export default class Form extends Component {
-  constructor(props) {
-    super(props);
-    this.state={};
-  };
-
-  render() {
-    return(
-      <Grid className="form" gridTemp={this.props.gridTemp} gridAuto={this.props.gridAuto} gridGap={this.props.gridGap}>
-        {this.props.children}
+export default function Form(props) {
+  //Form is reusable and is controlled through its inputs and formReducer.
+  //See formReducer.js for comments regarding contolled forms.
+  return(
+    <form className={`${props.className ? props.className : ""}${props.rows ? ` ${props.rows}` : ""}${props.cols ? ` ${props.cols}` : ""}`}>
+      <Grid grid={props.grid} gap={props.gap} padding={props.padding} margin={props.margin} >
+        {props.children}
       </Grid>
-    );
-  }
+    </form>
+  );
  };
 
