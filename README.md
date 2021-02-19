@@ -27,7 +27,8 @@ Grid components strive to be as flexible as possible by allowing grids to be def
   ```
 
 Components that import Grid are also likely to be nested inside another grid. They are passed the same props for Grid shown above as well as additional props that define the rows and columns that they occupy:
-
+  
+  ```
   export default function Header(props) {
     return(
       <header className={`${props.className ? props.className : ""}${props.rows ? ` ${props.rows}` : ""}${props.cols ? ` ${props.cols}` : ""}`}>
@@ -37,6 +38,7 @@ Components that import Grid are also likely to be nested inside another grid. Th
       </header>
     );
   };
+  ```
 
 REUSABLE VS NAMED COMPONENTS:
 Components are designed with reusability in mind, when it makes most sense. For example, those that act as containers are defined by a reusalbe Grid component.
