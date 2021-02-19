@@ -1,4 +1,5 @@
-INTRODUCTION:
+INTRODUCTION: 
+
 Biblio-lite employs a component-based design system that relies on reusable or "named" components that are then styled through props using a combination of BEM and utility classes.
 
 GRID:
@@ -40,6 +41,7 @@ Those components can themselves be reusable, like the Header or Form components.
 
 NAMED COMPONENTS ACROSS APPLICATIONS:
 Even though components like Home may only be used once in an application, they are reusable across applications:
+
 
   export default function Home(props) {
     return(
