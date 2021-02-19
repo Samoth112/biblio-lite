@@ -9,6 +9,7 @@ Child components use BEM and utility classes to define their style and to furthe
 
 Grid components strive to be as flexible as possible by allowing grids to be defined however the user would like through the use of utility classes in the grid prop, such as ".grid-temp-1x3" or ".grid-auto-rows-max-content".
 
+  ```
   export default function Grid(props) {
     let grid = props.grid ? ` ${props.grid}` : "";
     let gap = props.gap ? ` ${props.gap}` : "";
@@ -21,6 +22,7 @@ Grid components strive to be as flexible as possible by allowing grids to be def
       </div>           
     );
   };
+  ```
 
 Components that import Grid are also likely to be nested inside another grid. They are passed the same props for Grid shown above as well as additional props that define the rows and columns that they occupy:
 
