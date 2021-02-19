@@ -2,7 +2,9 @@
 
 Biblio-lite employs a component-based design system that relies on reusable or "named" components that are then styled through props using a combination of BEM and utility classes.
 
+
 GRID:
+
 Container components use CSS Grid to define their layout and to easily place child components within them.
 
 Child components use BEM and utility classes to define their style and to further refine their placement within their parent Grid containers.
