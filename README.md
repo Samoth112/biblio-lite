@@ -1,4 +1,4 @@
-INTRODUCTION: 
+**INTRODUCTION:** 
 
 Biblio-lite employs a component-based design system that relies on reusable or "named" components that are then styled through props using a combination of BEM and utility classes.
 
