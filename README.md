@@ -40,15 +40,17 @@ Components that import Grid are also likely to be nested inside another grid. Th
   };
   ```
 
-REUSABLE VS NAMED COMPONENTS:
+**REUSABLE VS NAMED COMPONENTS:**
+
 Components are designed with reusability in mind, when it makes most sense. For example, those that act as containers are defined by a reusalbe Grid component.
 
 Those components can themselves be reusable, like the Header or Form components. Components that are likely to be used only once in an application, such as the Home component, are referred to in this system as named components.
 
-NAMED COMPONENTS ACROSS APPLICATIONS:
+**NAMED COMPONENTS ACROSS APPLICATIONS:**
+
 Even though components like Home may only be used once in an application, they are reusable across applications:
 
-
+  ```
   export default function Home(props) {
     return(
       <section className='home'>
@@ -58,13 +60,18 @@ Even though components like Home may only be used once in an application, they a
       </section>
     );
   };
+  ```
 
-UTILITY CLASSES:
+**UTILITY CLASSES:**
+
 Utility classes are named to be as expressive of their value as possible to give readers immediate contextual information.
-For example, take the following classes for font-sizes:
 
+For example, take the following classes for font-sizes:
+  
+  ```
   .fs-1rem {font-size: var(--fs-default)};
   .fs-2rem {font-size: calc(2 * var(--fs-default))};
   .fs-5rem {font-size: calc(5 * var(--fs-default))};
+  ```
 
 The actual values (1rem, 2rem, and 5rem) are preferred over labels such as "sm," m," or "l".
