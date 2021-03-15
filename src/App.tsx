@@ -1,3 +1,4 @@
+import React from 'react';
 import Home from './components/Home';
 import Header from './components/Header';
 import Nav from './components/Nav';
@@ -5,7 +6,7 @@ import Banner from './components/Banner';
 import Form from './components/Form';
 import Input from './components/Input';
 
-function App() {
+function App(): React.ReactElement {
   return (
     <Home grid="grid-auto-rows-max-content">
       <Header className="header" grid="grid-auto-rows-max-content-1fr" rows="row1" cols="col1">
@@ -23,7 +24,7 @@ function App() {
             <Input type="text" name="city" dataActionType="SET_CITY" font="roboto-lt" fontSize="fs-1rem" height="h-3rem"/>
             <Input type="text" name="state" dataActionType="SET_STATE" font="roboto-lt" fontSize="fs-1rem" height="h-3rem"/>
             <Input type="text" name="zip" dataActionType="SET_ZIP" font="roboto-lt" fontSize="fs-1rem" height="h-3rem"/>
-            <Input type="submit" font="roboto-lt" fontSize="fs-1rem" height="h-3rem" />          
+            {/* <Input type="submit" font="roboto-lt" fontSize="fs-1rem" height="h-3rem" />           */}
           </Form>
         </Banner>
       </Header>

@@ -2,7 +2,18 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {changeForm} from '../actions/changeForm';
 
-class Input extends Component {
+interface InputProps {
+  type: string;
+  name: string;
+  dataActionType?: string;
+  font: string;
+  fontSize: string;
+  height: string;
+  formData: {[key: string]: string | number};
+  changeForm: React.ChangeEventHandler<HTMLInputElement>;
+}
+
+class Input extends Component<InputProps> {
   render() {
     let type = this.props.type;
     let name = this.props.name;
@@ -27,15 +38,15 @@ class Input extends Component {
   }
 };
 
-function mapStateToProps(state) {
+function mapStateToProps(state: {form: {formData: {}}}) {
   return {
     ...state.form
   }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch: Function) {
   return {
-    changeForm: (e) => {
+    changeForm: (e: React.ChangeEvent) => {
       e.preventDefault();
       dispatch(changeForm(e))
     },
