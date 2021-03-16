@@ -1,17 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {changeForm} from '../actions/changeForm';
-
-interface InputProps {
-  type: string;
-  name: string;
-  dataActionType?: string;
-  font: string;
-  fontSize: string;
-  height: string;
-  formData: {[key: string]: string | number};
-  changeForm: React.ChangeEventHandler<HTMLInputElement>;
-}
+import {InputProps} from '../interfaces/interfaces';
 
 class Input extends Component<InputProps> {
   render() {
