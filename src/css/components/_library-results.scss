@@ -1,0 +1,42 @@
+@mixin library-results__library-card--libraries-list-item {
+  border-left: 2px solid white;
+  grid-row: 1 / span 1;
+  padding: 32px;
+}
+
+.library-results {
+  grid-column: 1 / span 1;
+  grid-row: 2 / span 1;
+}
+
+.library-results__grid {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: min-content 1fr;
+}
+
+.library-results__libraries-list {
+  grid-column: 3 / span 10;
+  grid-row: 2 / span 1;
+  overflow-x: scroll;
+  scrollbar-width: none;  
+}
+
+.library-results__libraries-list-grid {
+  grid-auto-columns: 20%;
+  grid-auto-rows: minmax(0, 1fr);
+}
+
+.library-results__library-card--libraries-list-item {
+  @include library-results__library-card--libraries-list-item;
+}
+
+.library-results__library-card-grid {
+  grid-template-columns: minmax(0, 1fr);
+  grid-auto-rows: 1fr max-content;
+}
+
+.library-results__library-card-library-link {
+  color: black;
+  font-family: "DM Serif Display";
+  text-decoration: none;
+}

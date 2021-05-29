@@ -1,9 +1,8 @@
 import React from 'react';
-import {GridProps} from '../interfaces/interfaces';
 
-export default function Grid({grid, gap="", padding="", margin="", children}: React.PropsWithChildren<GridProps>): React.ReactElement {
+export default function Grid({className, children}: React.PropsWithChildren<{className: string}>): React.ReactElement {
   return(
-    <div className={`grid ${grid} ${gap} ${margin} ${padding}`}>      
+    <div className={`grid ${className}`}>      
       {children}
     </div>           
   );

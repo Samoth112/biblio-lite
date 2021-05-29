@@ -1,0 +1,52 @@
+@use './book-card';
+
+.book-form-card {
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  position: relative;
+}
+
+.book-form-card__grid {
+  grid-template-columns: minmax(0, 1fr);
+  grid-auto-rows: minmax(0, 1fr) max-content;
+  padding: 1.5rem;
+}
+
+.book-form-card__add {
+  line-height: 1em;
+  font-family: "Poppins";
+  font-size: 1.5rem;
+  font-weight: 600;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.book-form-card__button {
+  @include book-card.book-card__button;
+}
+
+.book-form-card__button-circle {
+  border-color: white;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 50%;
+  height: 1.5rem;
+  width: 1.5rem;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.book-form-card__button-plus {
+  line-height: 1em;
+  font-family: "Poppins";
+  font-size: 1rem;
+  font-weight: 600;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

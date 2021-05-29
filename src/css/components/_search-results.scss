@@ -1,0 +1,39 @@
+@use './home';
+
+.search-results {
+  background-color: #F2CA52;
+  height: 100vh;
+  max-width: 1440px;
+  overflow: scroll;
+}
+
+.search-results__grid {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: max-content minmax(0, 1fr);
+}
+
+.search-results__header {
+  @include home.row1-col1;
+  border-bottom: 2px solid white;
+}
+
+.search-results__header-grid {
+  grid-template-columns: minmax(0, 1fr);
+  grid-auto-rows: max-content;
+}
+
+.search-results__nav {
+  @include home.row1-col1;
+  padding: 1rem 2rem 1rem 2rem;
+}
+
+.search-results__nav-grid {
+  @include home.nav-grid
+}
+
+.search-results__nav-logo {
+  @include home.row1-col1;
+  font-family: "DM Serif Display";
+  font-size: 2rem;
+  font-weight: 600;
+}

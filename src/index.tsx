@@ -5,13 +5,41 @@ import {Provider} from 'react-redux';
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import formReducer from './reducers/formReducer';
+import addressSearchFormReducer from './reducers/addressSearchFormReducer';
+import resultsReducer from './reducers/resultsReducer';
+import bookReducer from './reducers/bookReducer';
+import libraryBooksReducer from './reducers/libraryBooksReducer';
+import sponserBooksReducer from './reducers/sponserBooksReducer';
+import sponserBookReducer from './reducers/sponserBookReducer';
+import {saveState, loadState} from './localStorage';
+import libraryBookReducer from './reducers/libraryBookReducer';
+import libraryBookFormReducer from './reducers/libraryBookFormReducer'
 
 const rootReducer = combineReducers({
-  form: formReducer
+  addressSearchForm: addressSearchFormReducer,
+  results: resultsReducer,
+  book: bookReducer,
+  libraryBooks: libraryBooksReducer,
+  libraryBook: libraryBookReducer,
+  sponserBooks: sponserBooksReducer,
+  sponserBook: sponserBookReducer,
+  libraryBookForm: libraryBookFormReducer
 });
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const persistedState = loadState(); 
+const store = createStore(rootReducer, persistedState, applyMiddleware(thunk));
+
+store.subscribe(() => {
+  saveState({
+    results: store.getState().results,
+    libraryBook: store.getState().libraryBook,
+    libraryBooks: store.getState().libraryBooks,
+    sponserBook: store.getState().sponserBook,
+    sponserBooks: store.getState().sponserBooks
+  });
+});
+
+export type AppState = ReturnType<typeof rootReducer>
 
 ReactDOM.render(
   <Provider store={store}>

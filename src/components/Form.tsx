@@ -1,13 +1,18 @@
 import React from 'react';
 import Grid from './Grid';
-import {GridProps, GridItemProps} from '../interfaces/interfaces';
 
-export default function Form({className="", rows, cols, grid, gap="", padding="", margin="", children}: React.PropsWithChildren<GridItemProps & GridProps>): React.ReactElement {
+interface FormProps {
+  className: string;
+  grid: string;
+  submitHandler: (e: React.FormEvent<HTMLFormElement>) => void;
+}
+
+export default function Form({className, grid, submitHandler, children}: React.PropsWithChildren<FormProps>): React.ReactElement {
   //Form is reusable and is controlled through its inputs and formReducer.
   //See formReducer.js for comments regarding contolled forms.
   return(
-    <form className={`${className} ${rows} ${cols}`}>
-      <Grid grid={grid} gap={gap} padding={padding} margin={margin} >
+    <form className={className} onSubmit={submitHandler}>
+      <Grid className={grid} >
         {children}
       </Grid>
     </form>

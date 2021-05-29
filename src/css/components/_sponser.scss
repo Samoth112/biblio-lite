@@ -1,0 +1,43 @@
+.sponser {
+  grid-column: 1 / span 1;
+}
+
+.sponser__grid {
+  grid-auto-columns: max-content;
+  grid-auto-rows: max-content;
+}
+
+.sponser__profile-pic {
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline;
+  height: 3rem;
+  width: 3rem;
+}
+
+.sponser__name {
+  font-family: 'Poppins';
+  font-weight: 600;
+  grid-column: 2 / span 1;
+  line-height: 1em;
+  padding-left: 0.5rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sponser__link {
+  display: block;
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 0.75em;
+  text-decoration: none;
+}
+
+.sponser__link:visited {
+  color: black;
+}
+
+.sponser__link:hover {
+  color: white;
+}

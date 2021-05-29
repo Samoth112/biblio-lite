@@ -1,0 +1,10 @@
+.library-books-new {
+  background-color: #F2CA52;
+  grid-column: 3 / span 10;
+  grid-row: 1 / span 2;
+}
+
+.library-books-new-grid {
+  grid-auto-columns: 20%;
+  grid-template-rows: minmax(0, 1fr);
+}

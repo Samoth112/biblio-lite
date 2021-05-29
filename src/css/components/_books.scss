@@ -1,0 +1,9 @@
+.books-list {
+  grid-column: 3 / span 10;
+  grid-row: 2 / span 1;
+}
+
+.books-list__grid {
+  grid-auto-columns: 20%;
+  grid-auto-rows: minmax(0, 1fr);
+}

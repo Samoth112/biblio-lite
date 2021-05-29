@@ -1,0 +1,78 @@
+.book {
+  background-color: #F2CA52;
+  grid-column: 3 / span 10;
+  grid-row: 1 / span 2;
+}
+
+.book-grid {
+  grid-auto-columns: 20%;
+  grid-template-rows: minmax(0, 1fr);
+}
+
+.book__book-cover {
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 1;
+  height: minmax(0, 1fr);
+  padding: 32px
+}
+
+.book__book-cover-image {
+  position: relative;
+  width: 100%;
+}
+
+.book__book-details {
+  font-family: 'DM Serif Display';
+  grid-column: 3 / span 2;
+  grid-row: 1 / span 1;
+  min-height: 100%;
+  overflow: scroll;
+  padding: 32px;
+}
+
+.book__book-details-grid {
+  grid-template-columns: minmax(0, 1fr);
+  grid-auto-rows: max-content;
+}
+
+.book__title {
+  font-size: 2rem;
+  line-height: 1em;
+}
+
+.book__subtitle, .book__byline {
+  line-height: 1em;
+  padding-top: 8px;
+}
+
+.book__description {
+  font-family: "IBM Plex Sans";
+  font-weight: 300;
+  padding-top: 48px;
+}
+
+.book__button-container {
+  padding-top: 3rem;
+
+  .book__button {
+    background-color: #6954E8;
+    border-radius: 18px;
+    border-width: 0;
+    color: white;
+    display: block;
+    font-size: .875rem;
+    height: 36px;
+    position: relative;
+    width: 100%;
+  }
+  
+  .book__button-text {
+    font-family: "Poppins";
+    font-weight: 600;
+    left: 50%;
+    line-height: 1em;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

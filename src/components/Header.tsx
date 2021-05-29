@@ -1,11 +1,15 @@
 import React from 'react';
 import Grid from './Grid';
-import {GridProps, GridItemProps} from '../interfaces/interfaces';
 
-export default function Header({className="", rows, cols, grid, gap="", padding="", margin="", children}: React.PropsWithChildren<GridItemProps & GridProps>): React.ReactElement {
+interface HeaderProps {
+  className: string;
+  grid: string;
+}
+
+export default function Header({className, grid, children}: React.PropsWithChildren<HeaderProps>): React.ReactElement {
   return(
-    <header className={`${className} ${rows} ${cols}`}>
-      <Grid grid={grid} gap={gap} padding={padding} margin={margin} >
+    <header className={className}>
+      <Grid className={grid}>
         {children}
       </Grid>
     </header>
