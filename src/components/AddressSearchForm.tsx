@@ -14,7 +14,7 @@ export default function AddressSearchForm(): React.ReactElement  {
       mode: 'cors',
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'https://lite-api.herokuapp.com'
+        'Access-Control-Allow-Origin': 'https://biblio-lite.herokuapp.com'
       },
       body: JSON.stringify(addressSearchFormData)
     })
