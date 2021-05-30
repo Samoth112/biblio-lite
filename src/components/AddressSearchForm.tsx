@@ -11,8 +11,10 @@ export default function AddressSearchForm(): React.ReactElement  {
     e.preventDefault();
     fetch(`https://lite-api.herokuapp.com/results`, {
       method: 'POST',
+      mode: 'cors',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'https://biblio-lite.herokuapp.com'
       },
       body: JSON.stringify(addressSearchFormData)
     })
