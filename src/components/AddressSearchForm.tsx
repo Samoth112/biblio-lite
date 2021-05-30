@@ -13,6 +13,7 @@ export default function AddressSearchForm(): React.ReactElement  {
       method: 'POST',
       mode: 'cors',
       headers: {
+        'Accept': 'application/json',
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': 'https://biblio-lite.herokuapp.com'
       },
