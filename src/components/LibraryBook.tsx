@@ -13,7 +13,7 @@ interface MatchParams {
 export default function LibraryBook({match}: RouteComponentProps<MatchParams>): React.ReactElement {
   const dispatch = useDispatch();
   const getLibraryBook = (little_library_id: string, id: string) => {
-    fetch(`http://localhost:3000/little_libraries/${little_library_id}/library_books/${id}`, {
+    fetch(`https://lite-api.herokuapp.com/little_libraries/${little_library_id}/library_books/${id}`, {
       method: 'GET'
     })
     .then((resp) => resp.json())
@@ -23,7 +23,7 @@ export default function LibraryBook({match}: RouteComponentProps<MatchParams>): 
   };
 
   const takeLibraryBook = (little_library_id:string, id:string) => {
-    fetch(`http://localhost:3000/little_libraries/${little_library_id}/library_books/${id}`, {
+    fetch(`https://lite-api.herokuapp.com/little_libraries/${little_library_id}/library_books/${id}`, {
       method: 'DELETE'
     })
     .then((resp) => resp.json())

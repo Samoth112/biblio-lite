@@ -21,7 +21,7 @@ export default function Library({match}: RouteComponentProps<MatchParams>): Reac
   console.log(redirect);
   const dispatch = useDispatch();
   const getLibrary = () => {
-    fetch(`http://localhost:3000/little_libraries/${match.params.id}`, {
+    fetch(`https://lite-api.herokuapp.com/little_libraries/${match.params.id}`, {
       method: 'GET',
     })
     .then((resp) => resp.json())

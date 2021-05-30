@@ -9,7 +9,7 @@ export default function AddressSearchForm(): React.ReactElement  {
   const dispatch = useDispatch();
   const submitAddress = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    fetch(`http://localhost:3000/results`, {
+    fetch(`https://lite-api.herokuapp.com/results`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

@@ -23,7 +23,7 @@ export default function LibraryBookForm({little_library_id}: LibraryBookFormProp
   }
   const createLibraryBook = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    fetch(`http://localhost:3000/little_libraries/${little_library_id}/library_books`, {
+    fetch(`https://lite-api.herokuapp.com/little_libraries/${little_library_id}/library_books`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

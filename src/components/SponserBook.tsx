@@ -15,7 +15,7 @@ export default function SponserBook({match}: RouteComponentProps<MatchParams>): 
   const sponserBook = useSelector((state: AppState) => state.sponserBook);
   const dispatch = useDispatch();
   const getSponserBook = (little_library_id: string, sponser_id: string, id: string) => {
-    fetch(`http://localhost:3000/little_libraries/${little_library_id}/sponsers/${sponser_id}/sponser_books/${id}`, {
+    fetch(`https://lite-api.herokuapp.com/little_libraries/${little_library_id}/sponsers/${sponser_id}/sponser_books/${id}`, {
       method: 'GET',
     })
     .then((resp) => resp.json())
@@ -26,7 +26,7 @@ export default function SponserBook({match}: RouteComponentProps<MatchParams>): 
 
   const createRequest = (e: React.MouseEvent<HTMLButtonElement>, little_library_id: string, sponser_id: string, id: string) => {
     e.preventDefault();
-    fetch(`http://localhost:3000/little_libraries/${little_library_id}/sponsers/${sponser_id}/sponser_books/${id}/requests`, {
+    fetch(`https://lite-api.herokuapp.com/little_libraries/${little_library_id}/sponsers/${sponser_id}/sponser_books/${id}/requests`, {
       method: 'POST'
     })
     .then((resp) => resp.json())

@@ -18,7 +18,7 @@ export default function LibraryBooks({match}: RouteComponentProps<LittleLibraryM
   let empty = useSelector((state: AppState) => state.libraryBooks.empty);
   const dispatch = useDispatch();
   const getLibraryBooks = () => {
-    fetch(`http://localhost:3000/little_libraries/${match.params.id}/library_books`, {
+    fetch(`https://lite-api.herokuapp.com/little_libraries/${match.params.id}/library_books`, {
       method: 'GET'
     })
     .then(resp => resp.json())
