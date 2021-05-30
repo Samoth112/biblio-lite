@@ -6,7 +6,6 @@ import {AppState} from '../index';
 
 export default function AddressSearchForm(): React.ReactElement  {
   const addressSearchFormData = useSelector((state: AppState ) => state.addressSearchForm.formData);
-  console.log(addressSearchFormData);
   const dispatch = useDispatch();
   const submitAddress = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -18,7 +17,7 @@ export default function AddressSearchForm(): React.ReactElement  {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': 'https://biblio-lite.herokuapp.com'
       },
-      body: JSON.stringify(addressSearchFormData)
+      body: JSON.stringify({street: "1927 Bartle Ave.", city: "Scotch Plains", state: "NJ"})
     })
     .then((resp) => 
       resp.json())
