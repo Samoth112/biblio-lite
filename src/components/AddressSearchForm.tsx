@@ -6,6 +6,7 @@ import {AppState} from '../index';
 
 export default function AddressSearchForm(): React.ReactElement  {
   const addressSearchFormData = useSelector((state: AppState ) => state.addressSearchForm.formData);
+  console.log(addressSearchFormData);
   const dispatch = useDispatch();
   const submitAddress = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
