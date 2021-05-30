@@ -23,6 +23,7 @@ export default function AddressSearchForm(): React.ReactElement  {
       resp.json())
     .then((json) => {
       if(json.status) {
+        console.log(json);
         dispatch({type: "SET_RESULTS", coordinates:{center: {lat: json.center.lat, lng: json.center.lng}}, libraries: json.little_libraries, searchSuccess: json.status});
       }
     });
