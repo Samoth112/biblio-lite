@@ -7,14 +7,19 @@
 .library-results {
   grid-column: 1 / span 1;
   grid-row: 2 / span 1;
+  margin: 0 auto;
+  max-width: var(--max-width-1440px);
 }
 
 .library-results__grid {
+  border-left: 2px solid white;
+  border-right: 2px solid white;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   grid-template-rows: min-content 1fr;
 }
 
 .library-results__libraries-list {
+  border-top: 2px solid white;
   grid-column: 3 / span 10;
   grid-row: 2 / span 1;
   overflow-x: scroll;
@@ -22,8 +27,12 @@
 }
 
 .library-results__libraries-list-grid {
-  grid-auto-columns: 20%;
+  grid-auto-columns: calc(var(--max-width-1440px) / 6);
   grid-auto-rows: minmax(0, 1fr);
+}
+
+.library-results__libraries-list-grid :first-child {
+  border-left: 0;
 }
 
 .library-results__library-card--libraries-list-item {
