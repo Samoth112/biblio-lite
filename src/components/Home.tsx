@@ -32,7 +32,7 @@ export default function Home(): React.ReactElement {
           <div className="home__modal-content">
             <span className="home__modal---close">&times;</span>
             <p>
-              Hello, and thanks for checking out Biblio, a project to help promote book access in the community.
+              Thanks for checking out Biblio, a project to help promote book access in the community.
               Biblio taps into the existing Little Free Library network and builds upon it by allowing users to sponser
               their local Little Free Libraries, expanding its offering.
             </p>
