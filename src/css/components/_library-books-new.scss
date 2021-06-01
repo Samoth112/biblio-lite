@@ -6,6 +6,6 @@
 }
 
 .library-books-new-grid {
-  grid-auto-columns: calc(var(--max-height-1440px) / 6);
+  grid-auto-columns: calc(var(--max-width-1440px) / 6);
   grid-template-rows: minmax(0, 1fr);
 }
