@@ -1,7 +1,8 @@
 .book {
   background-color: #F2CA52;
-  grid-column: 3 / span 10;
+  grid-column: 1 / span 6;
   grid-row: 1 / span 2;
+  z-index: 0;
 }
 
 .book-grid {
@@ -12,7 +13,6 @@
 .book__book-cover {
   grid-column: 1 / span 2;
   grid-row: 1 / span 1;
-  height: minmax(0, 1fr);
   padding: 32px
 }
 
