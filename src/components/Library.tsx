@@ -18,7 +18,6 @@ interface MatchParams {
 
 export default function Library({match}: RouteComponentProps<MatchParams>): React.ReactElement {
   const redirect = useSelector((state: AppState) => state.libraryBooks.redirect)
-  console.log(redirect);
   const dispatch = useDispatch();
   const getLibrary = () => {
     fetch(`https://lite-api.herokuapp.com/little_libraries/${match.params.id}`, {
