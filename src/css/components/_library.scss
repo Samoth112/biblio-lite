@@ -1,20 +1,20 @@
-@use "./home";
 @use "./library-results";
 
 .library {
   grid-column: 1 / span 12;
-  grid-row: 2 / span 1;
+  grid-row: 1 / span 2;
 }
 
 .library__grid {
   grid-auto-columns: calc(var(--max-width-1440px) / 6);
-  grid-template-rows: minmax(0, 1fr);
+  grid-template-rows: var(--map-height) minmax(0, 1fr);
 }
 
 .library__library-card--no-border {
-  @include home.row1-col1;
   @include library-results.library-results__library-card--libraries-list-item;
   border: none;
+  grid-column: 1 / span 1;
+  grid-row: 2 / span 1;
 }
 
 .library__library-card-grid {
