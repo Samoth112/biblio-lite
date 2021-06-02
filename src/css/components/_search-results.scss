@@ -31,9 +31,19 @@
 
 .search-results__nav-logo {
   @include home.row1-col1;
+  color: black;
   font-family: "DM Serif Display";
   font-size: 2rem;
   font-weight: 600;
   text-decoration: none;
   cursor: pointer
+}
+
+a.search-results__nav-logo:visited {
+  color: black
+}
+
+a.search-results__nav-logo:active {
+  border: 1px solid black;
+  color: #F2CA52;
 }
