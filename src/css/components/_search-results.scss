@@ -47,6 +47,8 @@
 }
 
 .search-results__nav-logo-link:active {
-  border: 1px solid black;
-  color: #F2CA52;
+  span {
+    color: #F2CA52;
+    text-shadow: 2px 2px black, 2px 2px black, 2px 2px black, 2px 2px black;
+  }
 }
