@@ -46,6 +46,16 @@
 
 .library-results__library-card-library-link {
   color: black;
+  cursor: pointer;
   font-family: "DM Serif Display";
   text-decoration: none;
+}
+
+.library-results__library-card-library-link:visited {
+  color: black
+}
+
+.library-results__library-card-library-link:active {
+  color: #F2CA52;
+  text-shadow: 1px 1px black, 1px 1px black, 1px 1px black, 1px 1px black;
 }

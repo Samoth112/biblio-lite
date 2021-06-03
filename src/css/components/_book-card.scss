@@ -76,6 +76,16 @@
   @include book-card__button;
 }
 
+.book-card__button {
+  color: white;
+}
+
+.book-card__button:active {
+  box-shadow: 2px 2px white, 2px 2px white, 2px 2px white, 2px 2px white;
+  color: #6954E8;
+  text-shadow: 1px 1px white, 1px 1px white, 1px 1px white, 1px 1px white;
+}
+
 .book-card__button-text {
   font-family: "Poppins";
   font-size: .875rem;
