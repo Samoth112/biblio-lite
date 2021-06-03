@@ -76,7 +76,7 @@
   @include book-card__button;
 }
 
-.book-card__button {
+.book-card__button:visited {
   color: white;
 }
 
