@@ -35,15 +35,18 @@
   font-family: "DM Serif Display";
   font-size: 2rem;
   font-weight: 600;
-  text-decoration: none;
-  cursor: pointer
 }
 
-a.search-results__nav-logo:visited {
+.search-results__nav-logo-link {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.search-results__nav-logo-link:visited {
   color: black
 }
 
-a.search-results__nav-logo:active {
+.search-results__nav-logo-link:active {
   border: 1px solid black;
   color: #F2CA52;
 }

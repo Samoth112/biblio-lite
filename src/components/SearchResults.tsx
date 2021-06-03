@@ -12,7 +12,7 @@ export default function SearchResults(): React.ReactElement {
         <Header className="search-results__header" grid="search-results__header-grid">
           <Nav className="search-results__nav" grid="search-results__nav-grid">
             <p className="search-results__nav-logo">
-              <Link to="/results">Biblio</Link>
+              <Link to="/results" className="search-results__nav-logo-link">Biblio</Link>
             </p>
           </Nav>
         </Header>
