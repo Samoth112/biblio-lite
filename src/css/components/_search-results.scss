@@ -31,13 +31,13 @@
 
 .search-results__nav-logo {
   @include home.row1-col1;
-  color: black;
   font-family: "DM Serif Display";
   font-size: 2rem;
   font-weight: 600;
 }
 
 .search-results__nav-logo-link {
+  color: black;
   cursor: pointer;
   text-decoration: none;
 }
