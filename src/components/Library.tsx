@@ -50,6 +50,7 @@ export default function Library({match}: RouteComponentProps<MatchParams>): Reac
   };
 
   useEffect(() => {
+    debugger;
     if(lib.id !== parseInt(match.params.id)) {
       getLibrary();
     } else if(redirect) {
