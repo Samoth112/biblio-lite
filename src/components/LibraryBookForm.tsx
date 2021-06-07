@@ -1,14 +1,14 @@
 import React from 'react';
-import Form from './Form';
-import Input from './Input';
 import {useSelector, useDispatch} from 'react-redux';
 import {AppState} from '../index';
+import Form from './Form';
+import Input from './Input';
 
 interface LibraryBookFormProps {
-  little_library_id: string;
+  littleLibraryId: string;
 }
 
-export default function LibraryBookForm({little_library_id}: LibraryBookFormProps): React.ReactElement {
+export default function LibraryBookForm({littleLibraryId}: LibraryBookFormProps): React.ReactElement {
   const libraryBookFormData = useSelector((state: AppState) => state.libraryBookForm.formData);
   const authorInputs = libraryBookFormData.book.authors.map((author, index) => 
     <div key={index}>
@@ -23,7 +23,7 @@ export default function LibraryBookForm({little_library_id}: LibraryBookFormProp
   }
   const createLibraryBook = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    fetch(`https://lite-api.herokuapp.com/little_libraries/${little_library_id}/library_books`, {
+    fetch(`https://lite-api.herokuapp.com/little_libraries/${littleLibraryId}/library_books`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -34,7 +34,7 @@ export default function LibraryBookForm({little_library_id}: LibraryBookFormProp
       resp.json())
     .then((json) => {
       console.log(json);
-      dispatch({type: 'SET_LIBRARY_BOOKS', littleLibraryId: little_library_id, libraryBooks: json})
+      dispatch({type: 'SET_LIBRARY_BOOKS', littleLibraryId: littleLibraryId, libraryBooks: json})
     });
   }
 

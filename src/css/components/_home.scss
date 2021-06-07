@@ -105,7 +105,7 @@
   }
 }
 
-.home__modal---close {
+.home__modal--close {
   color: white;
   float: right;
   font-size: 28px;
@@ -113,8 +113,8 @@
   line-height: 1em;
 }
 
-.home__modal---close:hover,
-.home__modal---close:focus {
+.home__modal--close:hover,
+.home__modal--close:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;

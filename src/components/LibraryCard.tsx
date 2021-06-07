@@ -1,8 +1,9 @@
 import React from 'react';
-import Grid from './Grid';
 import {Link} from 'react-router-dom';
+import Grid from './Grid';
 import Sponser from './Sponser';
 
+// resusable component
 interface LibraryCardProps {
   className: string;
   grid: string;
@@ -35,6 +36,7 @@ export default function LibraryCard({className, grid, id, charter, name, sponser
           <h1 className="library-card__charter">{charter}</h1>
           <h3 className="library-card__name">{name}</h3>
         </section>
+
         {className === "library__library-card--no-border" ? 
           <section className="library__library-card-sponsers-list">
             <Grid className="library__library-card-sponsers-list-grid">

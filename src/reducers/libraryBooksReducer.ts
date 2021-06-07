@@ -11,7 +11,7 @@ export interface LibraryBooksState {
   littleLibraryId: number;
   libraryBooks: {
     id: number;
-    little_library_id: number;
+    littleLibraryId: number;
     book_id: number;
     book: BookState;
   }[];

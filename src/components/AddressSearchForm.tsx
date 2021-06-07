@@ -1,8 +1,8 @@
 import React from 'react';
-import Form from './Form';
-import Input from './Input';
 import {useSelector, useDispatch} from 'react-redux';
 import {AppState} from '../index';
+import Form from './Form';
+import Input from './Input';
 
 export default function AddressSearchForm(): React.ReactElement  {
   const addressSearchFormData = useSelector((state: AppState ) => state.addressSearchForm.formData);
@@ -17,6 +17,7 @@ export default function AddressSearchForm(): React.ReactElement  {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': 'https://biblio-lite.herokuapp.com'
       },
+      // for now, only search for this address while the database is so limited.
       body: JSON.stringify({street: "1927 Bartle Ave.", city: "Scotch Plains", state: "NJ"})
     })
     .then((resp) => 
@@ -24,9 +25,9 @@ export default function AddressSearchForm(): React.ReactElement  {
     .then((json) => {
       if(json.status) {
         dispatch({type: "SET_RESULTS", coordinates:{center: {lat: json.center.lat, lng: json.center.lng}}, libraries: json.little_libraries, searchSuccess: json.status});
-      }
+      };
     });
-  }
+  };
 
   return(
     <Form className="address-search-form" grid="address-search-form-grid" submitHandler={submitAddress}>

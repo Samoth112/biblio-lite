@@ -1,17 +1,19 @@
-import React from 'react';
-import Map from './Map';
+import React, {useEffect} from 'react';
 import {useSelector} from 'react-redux';
-import {AppState} from '../index';
-import {useEffect} from 'react';
-import Grid from './Grid';
-import LibraryCard from './LibraryCard';
 import {
   Switch,
   Route
 } from 'react-router-dom';
+import {AppState} from '../index';
+import Grid from './Grid';
 import Library from './Library';
+import LibraryCard from './LibraryCard';
+import Map from './Map';
 
 export default function LibraryResults(): React.ReactElement {
+  const lat = useSelector((state: AppState) => state.results.coordinates.center.lat);
+  const lng = useSelector((state: AppState) => state.results.coordinates.center.lng);
+  const libraries = useSelector((state: AppState) => state.results.libraries);
   const loadGMaps = (callback: () => void) => {  
     const existingScript = document.getElementById('googleMaps');  
     if (!existingScript) {
@@ -25,10 +27,6 @@ export default function LibraryResults(): React.ReactElement {
     }
     if (existingScript && callback) callback();
   };
-
-  const lat = useSelector((state: AppState) => state.results.coordinates.center.lat);
-  const lng = useSelector((state: AppState) => state.results.coordinates.center.lng);
-  const libraries = useSelector((state: AppState) => state.results.libraries);
   
   useEffect(() => {
     loadGMaps(() => {

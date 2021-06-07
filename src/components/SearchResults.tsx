@@ -1,10 +1,10 @@
 import React from 'react';
-import Grid from './Grid';
-import LibraryResults from './LibraryResults'
-import Header from './Header';
-import Nav from './Nav';
 import {Link} from 'react-router-dom';
- 
+import Grid from './Grid';
+import Header from './Header';
+import LibraryResults from './LibraryResults';
+import Nav from './Nav';
+
 export default function SearchResults(): React.ReactElement {
   return(
     <section className="search-results">

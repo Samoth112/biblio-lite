@@ -1,22 +1,23 @@
-import React from 'react';
-import Grid from './Grid';
-import LibraryCard from './LibraryCard';
+import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {useEffect} from 'react';
-import {RouteComponentProps} from 'react-router';
+import {RouteComponentProps, Route, Switch, Redirect} from 'react-router-dom';
 import {AppState} from '../index';
-import {Route, Switch, Redirect} from 'react-router-dom';
+import Grid from './Grid';
 import LibraryBook from './LibraryBook';
-import SponserBook from './SponserBook';
 import LibraryBooks from './LibraryBooks';
-import SponserBooks from './SponserBooks';
 import LibraryBooksNew from './LibraryBooksNew';
-
+import LibraryCard from './LibraryCard';
+import SponserBook from './SponserBook';
+import SponserBooks from './SponserBooks';
+// component rendered through Route render prop takes MatchParams
 interface MatchParams {
   id: string;
 }
 
 export default function Library({match}: RouteComponentProps<MatchParams>): React.ReactElement {
+  let name = "";
+  let dewey_style_charter = "";
+  const lib = useSelector((state: AppState) => state.results.selectedLib);
   const redirect = useSelector((state: AppState) => state.libraryBooks.redirect)
   const dispatch = useDispatch();
   const getLibrary = () => {
@@ -29,12 +30,8 @@ export default function Library({match}: RouteComponentProps<MatchParams>): Reac
     });
   };
 
-  let name = "";
-  let dewey_style_charter = "";
-  const lib = useSelector((state: AppState) => state.results.selectedLib);
   if(lib.id === parseInt(match.params.id)) {
     name = lib.name
-
     let iter = 1;
     lib.charter.toString().split("").forEach((char) => {
       dewey_style_charter += char;
@@ -60,14 +57,14 @@ export default function Library({match}: RouteComponentProps<MatchParams>): Reac
       <Grid className="library__grid">
         <LibraryCard className="library__library-card--no-border" grid="library__library-card-grid" id={lib.id} charter={dewey_style_charter} name={name} sponsers={lib.sponsers} />
         <Switch>
-          <Route path="/results/little_libraries/:little_library_id/sponsers/:sponser_id/sponser_books/:id" render={(props) => <SponserBook {...props} /> } />
+          <Route path="/results/little_libraries/:littleLibraryId/sponsers/:sponserId/sponser_books/:id" render={(props) => <SponserBook {...props} /> } />
           {redirect ? 
             <Redirect to={`/results/little_libraries/${match.params.id}`} />
           :
-            <Route path="/results/little_libraries/:little_library_id/library_books/new" render={(props) => <LibraryBooksNew {...props} /> } />
+            <Route path="/results/little_libraries/:littleLibraryId/library_books/new" render={(props) => <LibraryBooksNew {...props} /> } />
           }
-          <Route path="/results/little_libraries/:little_library_id/sponsers/:id" render={(props) => <SponserBooks {...props} />} />
-          <Route path="/results/little_libraries/:little_library_id/library_books/:id" render={(props) => <LibraryBook {...props} />} />
+          <Route path="/results/little_libraries/:littleLibraryId/sponsers/:id" render={(props) => <SponserBooks {...props} />} />
+          <Route path="/results/little_libraries/:littleLibraryId/library_books/:id" render={(props) => <LibraryBook {...props} />} />
           <Route path="/results/little_libraries/:id" render={(props) => <LibraryBooks {...props} />} />
         </Switch>
       </Grid>

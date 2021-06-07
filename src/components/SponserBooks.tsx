@@ -4,9 +4,9 @@ import BookCard from './BookCard';
 import {RouteComponentProps} from 'react-router-dom';
 import {AppState} from '../index';
 import Grid from './Grid';
-
+// component rendered through Route render prop takes MatchParams
 interface MatchParams {
-  little_library_id: string;
+  littleLibraryId: string;
   id: string;
 };
 
@@ -15,7 +15,7 @@ export default function SponserBooks({match}: RouteComponentProps<MatchParams>):
   let sponserBooks = useSelector((state: AppState) => state.sponserBooks.sponserBooks);
   const dispatch = useDispatch();
   const getSponserBooks = () => {
-    fetch(`https://lite-api.herokuapp.com/little_libraries/${match.params.little_library_id}/sponsers/${match.params.id}/sponser_books`, {
+    fetch(`https://lite-api.herokuapp.com/little_libraries/${match.params.littleLibraryId}/sponsers/${match.params.id}/sponser_books`, {
       method: 'GET'
     })
     .then(resp => resp.json())
@@ -26,9 +26,9 @@ export default function SponserBooks({match}: RouteComponentProps<MatchParams>):
     });
   };
 
-  const createRequest = (e: React.MouseEvent<HTMLButtonElement>, little_library_id: string, sponser_id: string, id: string) => {
+  const createRequest = (e: React.MouseEvent<HTMLButtonElement>, littleLibraryId: string, sponserId: string, id: string) => {
     e.preventDefault();
-    fetch(`https://lite-api.herokuapp.com/little_libraries/${little_library_id}/sponsers/${sponser_id}/sponser_books/${id}/requests`, {
+    fetch(`https://lite-api.herokuapp.com/little_libraries/${littleLibraryId}/sponsers/${sponserId}/sponser_books/${id}/requests`, {
       method: 'POST'
     })
     .then((resp) => resp.json())
@@ -39,7 +39,7 @@ export default function SponserBooks({match}: RouteComponentProps<MatchParams>):
     });
   }
 
-  if(sponserBooks.length !== 0 && sponserBooks[0].sponser_id === parseInt(match.params.id)) {
+  if(sponserBooks.length !== 0 && sponserBooks[0].sponserId === parseInt(match.params.id)) {
     sponserBooksList = sponserBooks.map((sponserBook) => {
       return(
         <BookCard 
@@ -50,16 +50,16 @@ export default function SponserBooks({match}: RouteComponentProps<MatchParams>):
           subtitle={sponserBook.book.subtitle}
           authors={sponserBook.book.authors}
           img_url={sponserBook.book.img_url}
-          to={`/results/little_libraries/${parseInt(match.params.little_library_id)}/sponsers/${parseInt(match.params.id)}/sponser_books/${sponserBook.id}`}
+          to={`/results/little_libraries/${parseInt(match.params.littleLibraryId)}/sponsers/${parseInt(match.params.id)}/sponser_books/${sponserBook.id}`}
         >
-          <button className="book-card__button" onClick={(e: React.MouseEvent<HTMLButtonElement>) => createRequest(e, match.params.little_library_id, match.params.id, sponserBook.id.toString())}><p className="book-card__button-text">request</p></button>
+          <button className="book-card__button" onClick={(e: React.MouseEvent<HTMLButtonElement>) => createRequest(e, match.params.littleLibraryId, match.params.id, sponserBook.id.toString())}><p className="book-card__button-text">request</p></button>
         </BookCard>
       );
     });
   };
 
   useEffect(() => {
-    if(sponserBooks.length === 0 || (sponserBooks[0] && sponserBooks[0].sponser_id !== parseInt(match.params.id))) {
+    if(sponserBooks.length === 0 || (sponserBooks[0] && sponserBooks[0].sponserId !== parseInt(match.params.id))) {
       getSponserBooks();
     };
   });

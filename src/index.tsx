@@ -6,40 +6,40 @@ import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import addressSearchFormReducer from './reducers/addressSearchFormReducer';
-import resultsReducer from './reducers/resultsReducer';
 import bookReducer from './reducers/bookReducer';
-import libraryBooksReducer from './reducers/libraryBooksReducer';
-import sponserBooksReducer from './reducers/sponserBooksReducer';
-import sponserBookReducer from './reducers/sponserBookReducer';
-import {saveState, loadState} from './localStorage';
 import libraryBookReducer from './reducers/libraryBookReducer';
-import libraryBookFormReducer from './reducers/libraryBookFormReducer'
+import libraryBooksReducer from './reducers/libraryBooksReducer';
+import libraryBookFormReducer from './reducers/libraryBookFormReducer';
+import resultsReducer from './reducers/resultsReducer';
+import sponserBookReducer from './reducers/sponserBookReducer';
+import sponserBooksReducer from './reducers/sponserBooksReducer';
+import {saveState, loadState} from './localStorage';
 
 const rootReducer = combineReducers({
   addressSearchForm: addressSearchFormReducer,
-  results: resultsReducer,
   book: bookReducer,
-  libraryBooks: libraryBooksReducer,
   libraryBook: libraryBookReducer,
-  sponserBooks: sponserBooksReducer,
+  libraryBooks: libraryBooksReducer,
+  libraryBookForm: libraryBookFormReducer,
+  results: resultsReducer,
   sponserBook: sponserBookReducer,
-  libraryBookForm: libraryBookFormReducer
+  sponserBooks: sponserBooksReducer
 });
+// provides a state type for useSelector
+export type AppState = ReturnType<typeof rootReducer>
 
 const persistedState = loadState(); 
 const store = createStore(rootReducer, persistedState, applyMiddleware(thunk));
 
 store.subscribe(() => {
   saveState({
-    results: store.getState().results,
     libraryBook: store.getState().libraryBook,
     libraryBooks: store.getState().libraryBooks,
+    results: store.getState().results,
     sponserBook: store.getState().sponserBook,
     sponserBooks: store.getState().sponserBooks
   });
 });
-
-export type AppState = ReturnType<typeof rootReducer>
 
 ReactDOM.render(
   <Provider store={store}>
