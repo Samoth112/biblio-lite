@@ -32,7 +32,7 @@ export default function LibraryBooks({match}: RouteComponentProps<MatchParams>):
       if(json) { 
         // WHAT DOES THE API SEND WHEN A LIBRARY IS EMPTY?
         // CHECK THAT JSON[0] EXISTS FIRST?
-        dispatch({type: 'SET_LIBRARY_BOOKS', littleLibraryId: json[0].little_library_id, libraryBooks: json})
+        dispatch({type: 'SET_LIBRARY_BOOKS', littleLibraryId: match.params.id, libraryBooks: json})
       };
     });
   };
@@ -49,7 +49,7 @@ export default function LibraryBooks({match}: RouteComponentProps<MatchParams>):
       if(json) { 
         // WHAT DOES THE API SEND WHEN A LIBRARY IS EMPTY?
         // CHECK THAT JSON[0] EXISTS FIRST?
-        dispatch({type: 'SET_LIBRARY_BOOKS', littleLibraryId: json[0].little_library_id, libraryBooks: json})
+        dispatch({type: 'SET_LIBRARY_BOOKS', littleLibraryId: match.params.id, libraryBooks: json})
       };
     });
   };
