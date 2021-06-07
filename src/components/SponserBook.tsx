@@ -1,9 +1,8 @@
-import React from 'react';
-import Book from './Book';
-import {RouteComponentProps} from 'react-router-dom';
+import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {useEffect} from 'react';
+import {RouteComponentProps} from 'react-router-dom';
 import {AppState} from '../index';
+import Book from './Book';
 // component rendered through Route render prop takes MatchParams
 interface MatchParams {
   littleLibraryId: string;

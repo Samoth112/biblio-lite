@@ -54,7 +54,7 @@ export default function LibraryBooks({match}: RouteComponentProps<MatchParams>):
     });
   };
 
-  if(libraryBooks.length !== 0 && libraryBooks[0].littleLibraryId === parseInt(match.params.id)) {
+  if(libraryBooks.length !== 0 && libraryBooks[0].little_library_id === parseInt(match.params.id)) {
     libraryBooksList = libraryBooks.map((libraryBook) => {
       return(
         <BookCard 
