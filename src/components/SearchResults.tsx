@@ -6,6 +6,7 @@ import LibraryResults from './LibraryResults';
 import Nav from './Nav';
 
 export default function SearchResults(): React.ReactElement {
+  debugger;
   return(
     <section className="search-results">
       <Grid className="search-results__grid">

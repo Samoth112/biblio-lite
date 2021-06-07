@@ -1,6 +1,7 @@
 import React from 'react';
 import Grid from './Grid';
 
+// reusable component
 interface NavProps {
   className: string;
   grid: string;

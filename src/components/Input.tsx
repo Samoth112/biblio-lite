@@ -2,6 +2,7 @@ import React from 'react';
 import {useDispatch} from 'react-redux';
 import {changeForm} from '../actions/changeForm';
 
+// reusable component
 interface InputProps {
   type: string;
   name: string;
@@ -18,7 +19,8 @@ export default function Input({type, name, dataActionType, dataAuthorIndex, valu
     dispatch(action);
   };
 
-  //Input elements are controlled by formReducer. See notes in formReducer.js for more.
+  // Input components are controlled by their respecitve formReducers
+  // SPLIT THESE UP!
   return(
     <div className="input">
       {type !== 'submit' ? 

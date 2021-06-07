@@ -1,9 +1,6 @@
 import React, {useEffect} from 'react';
 import {useSelector} from 'react-redux';
-import {
-  Switch,
-  Route
-} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import {AppState} from '../index';
 import Grid from './Grid';
 import Library from './Library';
