@@ -20,7 +20,9 @@ export default function LibraryBook({match}: RouteComponentProps<MatchParams>): 
     })
     .then((resp) => resp.json())
     .then((json) => {
-      dispatch({type: "SET_LIBRARY_BOOK", id: json.id, littleLibraryId: json.little_library_id, bookId: json.book_id, book: json.book});
+      // properties use underscores instead of camelCase in order to type LibraryBooks objects returned as
+      // JSON data from Rails.
+      dispatch({type: "SET_LIBRARY_BOOK", id: json.id, little_library_id: json.little_library_id, book_id: json.book_id, book: json.book});
     });
   };
 

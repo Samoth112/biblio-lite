@@ -1,8 +1,10 @@
 import {BookState} from './bookReducer';
 
-// properties use underscores instead of camelCase
+// Properties use underscores instead of camelCase
 // in order to type LibraryBooks objects returned as
-// JSON data from Rails.
+// JSON data from Rails. This was done in order to
+// properly type the dispatch parameter of the 
+// takeLibraryBook helper function.
 const initialLibraryBookState: LibraryBookState = {
   id: 0,
   little_library_id: 0,

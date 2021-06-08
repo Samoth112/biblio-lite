@@ -26,7 +26,7 @@ export default function Library({match}: RouteComponentProps<MatchParams>): Reac
     })
     .then((resp) => resp.json())
     .then((json) => {
-      dispatch({type: "SET_LIBRARY", selectedLib: {id: json.id, charter: json.charter, name: json.name, sponsers: json.sponsers, books: json.books}})
+      dispatch({type: "SET_LIBRARY", selectedLib: {id: json.id, charter: json.charter, name: json.name, sponsers: json.sponsers}})
     });
   };
 
