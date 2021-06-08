@@ -62,6 +62,7 @@ export default function resultsReducer(state = initialResultsState, action: {typ
         searchSuccess: true
       };
     case 'SET_LIBRARY':
+      debugger;
       return {
         ...state,
         selectedLib: {
