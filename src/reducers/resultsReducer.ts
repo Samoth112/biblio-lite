@@ -48,6 +48,7 @@ export interface ResultsState {
 };
 
 export default function resultsReducer(state = initialResultsState, action: {type:string} & ResultsState): ResultsState {
+  debugger;
   switch(action.type) {
     case 'SET_RESULTS':
       return {
@@ -62,7 +63,6 @@ export default function resultsReducer(state = initialResultsState, action: {typ
         searchSuccess: true
       };
     case 'SET_LIBRARY':
-      debugger;
       return {
         ...state,
         selectedLib: {
