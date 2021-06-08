@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {RouteComponentProps, Route, Switch, Redirect} from 'react-router-dom';
+import {RouteComponentProps, Route, Switch} from 'react-router-dom';
 import {AppState} from '../index';
 import Grid from './Grid';
 import LibraryBook from './LibraryBook';
@@ -21,9 +21,16 @@ export default function Library({match}: RouteComponentProps<MatchParams>): Reac
   const lib = useSelector((state: AppState) => state.results.selectedLib);
   const redirect = useSelector((state: AppState) => state.libraryBooks.redirect);
   debugger;
-  // the redirect property is set in the libraryBooksReducer. The LibraryBooks component will
-  // dispatch the SET_LIBRARY_BOOKS action, which sets redirect to true.
-  // If true, 
+  // The redirect property is set in the libraryBooksReducer.
+  // Since the Route for LibraryBooks (see Switch component below) has the same path as this
+  // component, the LibraryBooks component will mount before this component finishes rendering.
+  // This includes dispatching the SET_LIBRARY_BOOKS action, which sets redirect to true.
+  // 
+  // Once LibraryBooks is done rendering, this component can do the same.
+  // Once that's done, useEffect is called, which eventually calls getLibrary(), which in turn dispatches the
+  // SET_LIBRARY action.
+  // Since state has changed, Library updates but now with redirect equal to true.
+  // 
   const dispatch = useDispatch();
   const getLibrary = () => {
     debugger;
@@ -69,11 +76,7 @@ export default function Library({match}: RouteComponentProps<MatchParams>): Reac
         <Switch>
           <Route path="/results/little_libraries/:littleLibraryId/sponsers/:sponserId/sponser_books/:id" render={(props) => <SponserBook {...props} /> } />
           <Route path="/results/little_libraries/:littleLibraryId/sponsers/:id" render={(props) => <SponserBooks {...props} />} />
-          {redirect ? 
-            <Redirect to={`/results/little_libraries/${match.params.id}`} />
-          :
-            <Route path="/results/little_libraries/:littleLibraryId/library_books/new" render={(props) => <LibraryBooksNew {...props} /> } />
-          }
+          <Route path="/results/little_libraries/:littleLibraryId/library_books/new" render={(props) => <LibraryBooksNew {...props} /> } />
           <Route path="/results/little_libraries/:littleLibraryId/library_books/:id" render={(props) => <LibraryBook {...props} />} />
           <Route path="/results/little_libraries/:id" render={(props) => <LibraryBooks {...props} />} />
         </Switch>
