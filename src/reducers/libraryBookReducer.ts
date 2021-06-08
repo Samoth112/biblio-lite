@@ -1,24 +1,26 @@
 import {BookState} from './bookReducer';
 
+// properties use underscores instead of camelCase
+// in order to type LibraryBooks objects returned as
+// JSON data from Rails.
 const initialLibraryBookState: LibraryBookState = {
   id: 0,
-  littleLibraryId: 0,
-  bookId: 0,
+  little_library_id: 0,
+  book_id: 0,
   book: {
     id: 0,
     title: "",
     subtitle: "",
     description: "",
     img_url: "",
-    // property from Rails object
     authors: []
   }
 };
 
 export interface LibraryBookState {
   id: number;
-  littleLibraryId: number;
-  bookId: number;
+  little_library_id: number;
+  book_id: number;
   book: BookState;
 };
 
@@ -28,8 +30,8 @@ export default function libraryBookReducer(state = initialLibraryBookState, acti
       return {
         ...state,
         id: action.id,
-        littleLibraryId: action.littleLibraryId,
-        bookId: action.bookId,
+        little_library_id: action.little_library_id,
+        book_id: action.book_id,
         book: action.book
       };
     default:

@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {RouteComponentProps, Link} from 'react-router-dom';
 import {AppState} from '../index';
+import {takeLibraryBook} from '../helpers';
 import Book from './Book';
 
 // component rendered through Route render prop takes MatchParams
@@ -23,17 +24,6 @@ export default function LibraryBook({match}: RouteComponentProps<MatchParams>): 
     });
   };
 
-  // MAKE THIS A HELPER
-  const takeLibraryBook = (libraryBookId: string) => {
-    fetch(`https://lite-api.herokuapp.com/little_libraries/${match.params.littleLibraryId}/library_books/${libraryBookId}`, {
-      method: 'DELETE'
-    })
-    .then((resp) => resp.json())
-    .then((json) => {
-      dispatch({type: 'SET_LIBRARY_BOOKS', littleLibraryId: match.params.littleLibraryId, libraryBooks: json})
-    });
-  };
-
   useEffect(() => {
     if(libraryBook.id.toString() !== match.params.id) {
       getLibraryBook();
@@ -49,7 +39,7 @@ export default function LibraryBook({match}: RouteComponentProps<MatchParams>): 
     // is updated, provide the ids of the current libraryBook and the one being requested.
     // The Book component will compare the two and only render the book if the ids match.
     <Book book={libraryBook.book} currentId={libraryBook.id} nextId={parseInt(match.params.id)}>
-      <Link className="book__button" onClick={() => takeLibraryBook(match.params.id)} to={`/results/little_libraries/${match.params.littleLibraryId}`}><p className="book__button-text">take</p></Link>
+      <Link className="book__button" onClick={() => takeLibraryBook(dispatch, match.params.littleLibraryId, libraryBook.id.toString())} to={`/results/little_libraries/${match.params.littleLibraryId}`}><p className="book__button-text">take</p></Link>
     </Book> 
   );
 };

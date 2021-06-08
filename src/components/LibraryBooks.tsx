@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {RouteComponentProps, Link} from 'react-router-dom';
 import {AppState} from '../index';
+import {takeLibraryBook} from '../helpers';
 import BookCard from './BookCard';
 import BookFormCard from './BookFormCard';
 import Grid from './Grid';
@@ -38,24 +39,6 @@ export default function LibraryBooks({match}: RouteComponentProps<MatchParams>):
     });
   };
 
-  // MAKE THIS A HELPER
-  const takeLibraryBook = (libraryBookId: string) => {
-    fetch(`https://lite-api.herokuapp.com/little_libraries/${match.params.id}/library_books/${libraryBookId}`, {
-      method: 'DELETE'
-    })
-    .then((resp) => resp.json())
-    .then((json) => {
-      // An empty library will cause a loop, so don't SET_LIBRARY_BOOKS.
-      // Setting an empty library will still trigger useEffect, and since getLibraryBooks
-      // will be called when a library is empty, like on the intial render, avoid dispatching the action altogether.
-      if(json) { 
-        // WHAT DOES THE API SEND WHEN A LIBRARY IS EMPTY?
-        // CHECK THAT JSON[0] EXISTS FIRST?
-        dispatch({type: 'SET_LIBRARY_BOOKS', littleLibraryId: match.params.id, libraryBooks: json})
-      };
-    });
-  };
-
   if(libraryBooks.length !== 0 && libraryBooks[0].little_library_id === parseInt(match.params.id)) {
     libraryBooksList = libraryBooks.map((libraryBook) => {
       return(
@@ -69,7 +52,7 @@ export default function LibraryBooks({match}: RouteComponentProps<MatchParams>):
           imgUrl={libraryBook.book.img_url}
           to={`/results/little_libraries/${parseInt(match.params.id)}/library_books/${libraryBook.id}`}
         >
-          <Link className="book-card__button" onClick={() => takeLibraryBook(libraryBook.id.toString())} to={`/results/little_libraries/${match.params.id}`}><p className="book-card__button-text">take</p></Link>
+          <Link className="book-card__button" onClick={() => takeLibraryBook(dispatch, match.params.id, libraryBook.id.toString())} to={`/results/little_libraries/${match.params.id}`}><p className="book-card__button-text">take</p></Link>
         </BookCard>
       );
     });

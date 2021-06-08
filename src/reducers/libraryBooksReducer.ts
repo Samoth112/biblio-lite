@@ -1,4 +1,4 @@
-import {BookState} from './bookReducer';
+import {LibraryBookState} from './libraryBookReducer';
 
 const initialLibraryBooksState: LibraryBooksState = {
   littleLibraryId: 0,
@@ -8,13 +8,7 @@ const initialLibraryBooksState: LibraryBooksState = {
 
 export interface LibraryBooksState {
   littleLibraryId: number;
-  libraryBooks: {
-    id: number;
-    little_library_id: number;
-    book_id: number;
-    // properties from Rails object
-    book: BookState;
-  }[];
+  libraryBooks: LibraryBookState[];
   empty: boolean;
 };
 
