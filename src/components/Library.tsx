@@ -26,11 +26,13 @@ export default function Library({match}: RouteComponentProps<MatchParams>): Reac
   // If true, 
   const dispatch = useDispatch();
   const getLibrary = () => {
+    debugger;
     fetch(`https://lite-api.herokuapp.com/little_libraries/${match.params.id}`, {
       method: 'GET',
     })
     .then((resp) => resp.json())
     .then((json) => {
+      debugger;
       dispatch({type: "SET_LIBRARY", selectedLib: {id: json.id, charter: json.charter, name: json.name, sponsers: json.sponsers, books: json.books}})
     });
   };
@@ -52,8 +54,10 @@ export default function Library({match}: RouteComponentProps<MatchParams>): Reac
   useEffect(() => {
     debugger;
     if(lib.id !== parseInt(match.params.id)) {
+      debugger;
       getLibrary();
     } else if(redirect) {
+      debugger;
       dispatch({type: 'STOP_REDIRECT'});
     };
   });
