@@ -9,7 +9,6 @@ interface BookFormCardProps {
 export default function BookFormCard({className, grid, children}: PropsWithChildren<BookFormCardProps>): React.ReactElement {
   return(
     <section className={className}>
-       {/* Grids are position: relative */}
       <Grid className={grid}>
         <section>
           <p className="book-form-card__add">add</p>

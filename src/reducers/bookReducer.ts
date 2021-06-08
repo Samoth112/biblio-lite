@@ -4,6 +4,7 @@ const initialBookState: BookState = {
   subtitle: "",
   description: "",
   img_url: "",
+  // property from Rails object
   authors: []
 };
 
@@ -13,9 +14,11 @@ export interface BookState {
   subtitle: string;
   description: string;
   img_url: string;
+  // property from Rails object
   authors: {
     first_name: string;
     last_name: string;
+    // properties from Rails object
   }[];
 };
 

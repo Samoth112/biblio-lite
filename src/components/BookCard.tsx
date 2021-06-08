@@ -2,6 +2,7 @@ import React, {PropsWithChildren} from 'react';
 import Grid from './Grid';
 import {Link} from 'react-router-dom';
 
+// reusable component
 interface BookCardProps {
   className: string
   grid: string;
@@ -11,11 +12,12 @@ interface BookCardProps {
   authors: {
     first_name: string;
     last_name: string;
+    // properties from Rails object
   }[];
-  img_url: string;
+  imgUrl: string;
 }
 
-export default function BookCard({className, grid, to, title, subtitle, authors, img_url, children}: PropsWithChildren<BookCardProps>): React.ReactElement {
+export default function BookCard({className, grid, to, title, subtitle, authors, imgUrl, children}: PropsWithChildren<BookCardProps>): React.ReactElement {
   let byline = "by";
   let fullName = "";
   
@@ -37,7 +39,7 @@ export default function BookCard({className, grid, to, title, subtitle, authors,
   return(
     <section className={className}>
       <Grid className={grid}>
-        <img className="book-card__book-cover" alt="" src={img_url}></img>
+        <img className="book-card__book-cover" alt="" src={imgUrl}></img>
         <Link className="book-card__link" to={to}>
           <section className="book-card__details">
             <p className="book-card__title">{title}</p>

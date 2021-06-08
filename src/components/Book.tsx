@@ -2,6 +2,7 @@ import React, {PropsWithChildren} from 'react';
 import Grid from './Grid';
 import {BookState} from '../reducers/bookReducer';
 
+// reusable component
 interface BookProps {
   currentId: number;
   nextId: number;
@@ -29,6 +30,12 @@ export default function Book({currentId, nextId, book, children}: PropsWithChild
 
   return(
     <section className="book">
+      {/* 
+      The currentId and nextId props represent the id of the previously selected libraryBook or sponserBook
+      and the id of the libraryBook or SponserBook currently being navigated to by the user.
+      They must match before book content can be rendered.
+      See notes in LibraryBook or SponserBook for more.
+      */}
       {currentId === nextId &&
         <Grid className="book-grid">
           <section className="book__book-cover">

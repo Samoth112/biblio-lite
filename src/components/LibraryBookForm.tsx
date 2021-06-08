@@ -4,6 +4,9 @@ import {AppState} from '../index';
 import Form from './Form';
 import Input from './Input';
 
+// THIS PROP IS UNNECESSARY, CAN GET littleLibraryId FROM STATE,
+// SINCE THE LITTLELIBRARY STATE (selectedLib in resultsReducer) WILL BE SET BEFORE USERS CAN
+// NAVIGATE TO THIS COMPONENT.
 interface LibraryBookFormProps {
   littleLibraryId: string;
 }
@@ -20,7 +23,7 @@ export default function LibraryBookForm({littleLibraryId}: LibraryBookFormProps)
   const addAuthor = (e: React.MouseEvent<HTMLParagraphElement>) => {
     e.preventDefault();
     dispatch({type: 'ADD_AUTHOR'});
-  }
+  };
   const createLibraryBook = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     fetch(`https://lite-api.herokuapp.com/little_libraries/${littleLibraryId}/library_books`, {
@@ -35,7 +38,7 @@ export default function LibraryBookForm({littleLibraryId}: LibraryBookFormProps)
     .then((json) => {
       dispatch({type: 'SET_LIBRARY_BOOKS', littleLibraryId: littleLibraryId, libraryBooks: json})
     });
-  }
+  };
 
   return(
     <Form className="library-book-form" grid="library-book-form__grid" submitHandler={createLibraryBook}>

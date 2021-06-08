@@ -10,6 +10,7 @@ const initialLibraryBookState: LibraryBookState = {
     subtitle: "",
     description: "",
     img_url: "",
+    // property from Rails object
     authors: []
   }
 };

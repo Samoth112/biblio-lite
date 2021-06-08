@@ -66,7 +66,7 @@ export default function LibraryBooks({match}: RouteComponentProps<MatchParams>):
           title={libraryBook.book.title} 
           subtitle={libraryBook.book.subtitle}
           authors={libraryBook.book.authors}
-          img_url={libraryBook.book.img_url}
+          imgUrl={libraryBook.book.img_url}
           to={`/results/little_libraries/${parseInt(match.params.id)}/library_books/${libraryBook.id}`}
         >
           <Link className="book-card__button" onClick={() => takeLibraryBook(libraryBook.id.toString())} to={`/results/little_libraries/${match.params.id}`}><p className="book-card__button-text">take</p></Link>

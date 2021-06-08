@@ -16,6 +16,7 @@ interface LibraryCardProps {
       id: number;
       first_name: string;
       last_name: string;
+      // properties from Rails object
     }
   }[];
 };
@@ -25,7 +26,7 @@ export default function LibraryCard({className, grid, id, charter, name, sponser
   if(sponsers) {
     sponsersList = sponsers.map((sponser) => {
       return(
-        <Sponser key={sponser.id} id={sponser.id} lib_id={id} first_name={sponser.user.first_name} last_name={sponser.user.last_name} />
+        <Sponser key={sponser.id} id={sponser.id} libId={id} firstName={sponser.user.first_name} lastName={sponser.user.last_name} />
       );
     });
   };

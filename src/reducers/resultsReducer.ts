@@ -41,6 +41,7 @@ export interface ResultsState {
         id: number;
         first_name: string;
         last_name: string;
+        // properties from Rails object
       }
     }[];
   }

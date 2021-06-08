@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {RouteComponentProps} from 'react-router-dom';
 import {AppState} from '../index';
 import Book from './Book';
+
 // component rendered through Route render prop takes MatchParams
 interface MatchParams {
   littleLibraryId: string;
@@ -44,6 +45,13 @@ export default function SponserBook({match}: RouteComponentProps<MatchParams>): 
   });
 
   return(
+    // Since getSponserBook does not get called until after the component mounts,
+    // the last visted sponserBook.book is passed into the Book component.
+    // In most cases, this will not be the sponserBook we want, so, 
+    // to prevent displaying the previous sponserBook before this component can
+    // rerender with the correct sponserBook, after getLibraryBook is called and state
+    // is updated, provide the ids of the current sponserBook and the one being requested.
+    // The Book component will compare the two and only render the book if the ids match.
     <Book book={sponserBook.book} currentId={sponserBook.id} nextId={parseInt(match.params.id)}>
       <button className="book__button" onClick={(e: React.MouseEvent<HTMLButtonElement>) => createRequest(e)}>request</button>
     </Book> 

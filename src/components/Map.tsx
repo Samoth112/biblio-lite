@@ -1,6 +1,7 @@
 import React from 'react';
 import Grid from './Grid';
 
+// resusable component
 interface MapProps {
   className: string;
   grid: string;

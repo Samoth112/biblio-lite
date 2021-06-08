@@ -41,6 +41,13 @@ export default function LibraryBook({match}: RouteComponentProps<MatchParams>): 
   });
   
   return(
+    // Since getLibraryBook does not get called until after the component mounts,
+    // the last visted libraryBook.book is passed into the Book component.
+    // In most cases, this will not be the libraryBook we want, so, 
+    // to prevent displaying the previous libraryBook before this component can
+    // rerender with the correct libraryBook, after getLibraryBook is called and state
+    // is updated, provide the ids of the current libraryBook and the one being requested.
+    // The Book component will compare the two and only render the book if the ids match.
     <Book book={libraryBook.book} currentId={libraryBook.id} nextId={parseInt(match.params.id)}>
       <Link className="book__button" onClick={() => takeLibraryBook(match.params.id)} to={`/results/little_libraries/${match.params.littleLibraryId}`}><p className="book__button-text">take</p></Link>
     </Book> 

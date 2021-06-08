@@ -3,6 +3,7 @@ import {RouteComponentProps} from 'react-router-dom';
 import Grid from './Grid';
 import LibraryBookForm from './LibraryBookForm';
 
+// component rendered through Route render prop takes MatchParams
 interface MatchParams {
   littleLibraryId: string;
 }

@@ -52,7 +52,7 @@ export default function SponserBooks({match}: RouteComponentProps<MatchParams>):
           title={sponserBook.book.title} 
           subtitle={sponserBook.book.subtitle}
           authors={sponserBook.book.authors}
-          img_url={sponserBook.book.img_url}
+          imgUrl={sponserBook.book.img_url}
           to={`/results/little_libraries/${parseInt(match.params.littleLibraryId)}/sponsers/${parseInt(match.params.id)}/sponser_books/${sponserBook.id}`}
         >
           <button className="book-card__button" onClick={(e: React.MouseEvent<HTMLButtonElement>) => createRequest(e, match.params.littleLibraryId, match.params.id, sponserBook.id.toString())}><p className="book-card__button-text">request</p></button>
