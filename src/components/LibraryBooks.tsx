@@ -11,7 +11,6 @@ interface MatchParams {
 }
 
 export default function LibraryBooks({match}: RouteComponentProps<MatchParams>): React.ReactElement {
-  debugger;
   let libraryBooksList;
   const littleLibraryId = useSelector((state: AppState) => state.libraryBooks.littleLibraryId );
   const libraryBooks = useSelector((state: AppState) => state.libraryBooks.libraryBooks);
@@ -22,7 +21,6 @@ export default function LibraryBooks({match}: RouteComponentProps<MatchParams>):
   const empty = useSelector((state: AppState) => state.libraryBooks.empty);
   const dispatch = useDispatch();
   const getLibraryBooks = () => {
-    debugger;
     fetch(`https://lite-api.herokuapp.com/little_libraries/${match.params.id}/library_books`, {
       method: 'GET'
     })
@@ -34,7 +32,6 @@ export default function LibraryBooks({match}: RouteComponentProps<MatchParams>):
       if(json) { 
         // WHAT DOES THE API SEND WHEN A LIBRARY IS EMPTY?
         // CHECK THAT JSON[0] EXISTS FIRST?
-        debugger;
         dispatch({type: 'SET_LIBRARY_BOOKS', littleLibraryId: match.params.id, libraryBooks: json})
       };
     });
@@ -77,9 +74,7 @@ export default function LibraryBooks({match}: RouteComponentProps<MatchParams>):
   };
 
   useEffect(() => {
-    debugger;
     if(!empty && !libraryBooks[0]) {
-      debugger;
       // After intial render, empty is initially set to false and libraryBooks is empty.
       // If empty is set to false and there are no libraryBooks, then call getLibraryBooks().
       // This condition should always be true after the initial render.

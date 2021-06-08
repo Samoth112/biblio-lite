@@ -13,33 +13,19 @@ import SponserBooks from './SponserBooks';
 // component rendered through Route render prop takes MatchParams
 interface MatchParams {
   id: string;
-}
+};
 
 export default function Library({match}: RouteComponentProps<MatchParams>): React.ReactElement {
   let name = "";
   let dewey_style_charter = "";
   const lib = useSelector((state: AppState) => state.results.selectedLib);
-  const redirect = useSelector((state: AppState) => state.libraryBooks.redirect);
-  debugger;
-  // The redirect property is set in the libraryBooksReducer.
-  // Since the Route for LibraryBooks (see Switch component below) has the same path as this
-  // component, the LibraryBooks component will mount before this component finishes rendering.
-  // This includes dispatching the SET_LIBRARY_BOOKS action, which sets redirect to true.
-  // 
-  // Once LibraryBooks is done rendering, this component can do the same.
-  // Once that's done, useEffect is called, which eventually calls getLibrary(), which in turn dispatches the
-  // SET_LIBRARY action.
-  // Since state has changed, Library updates but now with redirect equal to true.
-  // 
   const dispatch = useDispatch();
   const getLibrary = () => {
-    debugger;
     fetch(`https://lite-api.herokuapp.com/little_libraries/${match.params.id}`, {
       method: 'GET',
     })
     .then((resp) => resp.json())
     .then((json) => {
-      debugger;
       dispatch({type: "SET_LIBRARY", selectedLib: {id: json.id, charter: json.charter, name: json.name, sponsers: json.sponsers, books: json.books}})
     });
   };
@@ -59,14 +45,9 @@ export default function Library({match}: RouteComponentProps<MatchParams>): Reac
   };
 
   useEffect(() => {
-    debugger;
     if(lib.id !== parseInt(match.params.id)) {
-      debugger;
       getLibrary();
-    } else if(redirect) {
-      debugger;
-      dispatch({type: 'STOP_REDIRECT'});
-    };
+    }
   });
 
   return(
@@ -82,5 +63,5 @@ export default function Library({match}: RouteComponentProps<MatchParams>): Reac
         </Switch>
       </Grid>
     </section>
-  )  
-}
+  );  
+};

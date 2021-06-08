@@ -33,7 +33,6 @@ export default function LibraryBookForm({littleLibraryId}: LibraryBookFormProps)
     .then((resp) => 
       resp.json())
     .then((json) => {
-      console.log(json);
       dispatch({type: 'SET_LIBRARY_BOOKS', littleLibraryId: littleLibraryId, libraryBooks: json})
     });
   }

@@ -48,7 +48,6 @@ export interface ResultsState {
 };
 
 export default function resultsReducer(state = initialResultsState, action: {type:string} & ResultsState): ResultsState {
-  console.log(action);
   switch(action.type) {
     case 'SET_RESULTS':
       return {

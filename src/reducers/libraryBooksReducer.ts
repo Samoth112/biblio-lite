@@ -3,8 +3,7 @@ import {BookState} from './bookReducer';
 const initialLibraryBooksState: LibraryBooksState = {
   littleLibraryId: 0,
   libraryBooks: [],
-  empty: false,
-  redirect: false
+  empty: false
 };
 
 export interface LibraryBooksState {
@@ -16,7 +15,6 @@ export interface LibraryBooksState {
     book: BookState;
   }[];
   empty: boolean;
-  redirect: boolean;
 };
 
 export default function libraryBooksReducer(state = initialLibraryBooksState, action: {type: string} & LibraryBooksState): LibraryBooksState {
@@ -28,22 +26,15 @@ export default function libraryBooksReducer(state = initialLibraryBooksState, ac
           littleLibraryId: action.littleLibraryId,
           libraryBooks: action.libraryBooks,
           empty: false,
-          redirect: true
         };
       } else {
         return {
           ...state,
           littleLibraryId: action.littleLibraryId,
           libraryBooks: action.libraryBooks,
-          empty: true,
-          redirect: true
+          empty: true
         }
       };
-    case 'STOP_REDIRECT':
-      return {
-        ...state,
-        redirect: false
-      }
     default:
       return state;
   };
