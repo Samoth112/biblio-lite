@@ -13,19 +13,20 @@ interface MatchParams {
 export default function SponserBook({match}: RouteComponentProps<MatchParams>): React.ReactElement {
   const sponserBook = useSelector((state: AppState) => state.sponserBook);
   const dispatch = useDispatch();
-  const getSponserBook = (littleLibraryId: string, sponserId: string, id: string) => {
-    fetch(`https://lite-api.herokuapp.com/little_libraries/${littleLibraryId}/sponsers/${sponserId}/sponser_books/${id}`, {
+  const getSponserBook = () => {
+    fetch(`https://lite-api.herokuapp.com/little_libraries/${match.params.littleLibraryId}/sponsers/${match.params.sponserId}/sponser_books/${match.params.id}`, {
       method: 'GET',
     })
     .then((resp) => resp.json())
     .then((json) => {
-      dispatch({type: "SET_SPONSER_BOOK", id: json.id, sponserId: json.sponser_id, book_id: json.book_id, book: json.book});
+      dispatch({type: "SET_SPONSER_BOOK", id: json.id, sponserId: json.sponser_id, bookId: json.book_id, book: json.book});
     });
   };
 
-  const createRequest = (e: React.MouseEvent<HTMLButtonElement>, littleLibraryId: string, sponserId: string, id: string) => {
+  // MAKE THIS A HELPER
+  const createRequest = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    fetch(`https://lite-api.herokuapp.com/little_libraries/${littleLibraryId}/sponsers/${sponserId}/sponser_books/${id}/requests`, {
+    fetch(`https://lite-api.herokuapp.com/little_libraries/${match.params.littleLibraryId}/sponsers/${match.params.sponserId}/sponser_books/${match.params.id}/requests`, {
       method: 'POST'
     })
     .then((resp) => resp.json())
@@ -38,13 +39,13 @@ export default function SponserBook({match}: RouteComponentProps<MatchParams>): 
 
   useEffect(() => {
     if(sponserBook.id.toString() !== match.params.id) {
-      getSponserBook(match.params.littleLibraryId, match.params.sponserId, match.params.id);
+      getSponserBook();
     };
   });
 
   return(
     <Book book={sponserBook.book} currentId={sponserBook.id} nextId={parseInt(match.params.id)}>
-      <button className="book__button" onClick={(e: React.MouseEvent<HTMLButtonElement>) => createRequest(e, match.params.littleLibraryId, match.params.sponserId, match.params.id)}>request</button>
+      <button className="book__button" onClick={(e: React.MouseEvent<HTMLButtonElement>) => createRequest(e)}>request</button>
     </Book> 
   ); 
 };

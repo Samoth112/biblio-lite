@@ -12,6 +12,7 @@ export interface LibraryBooksState {
     id: number;
     little_library_id: number;
     book_id: number;
+    // id properties from rails object
     book: BookState;
   }[];
   empty: boolean;

@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {RouteComponentProps, Link} from 'react-router-dom';
 import {AppState} from '../index';
 import Book from './Book';
+
 // component rendered through Route render prop takes MatchParams
 interface MatchParams {
   littleLibraryId: string;
@@ -22,13 +23,14 @@ export default function LibraryBook({match}: RouteComponentProps<MatchParams>): 
     });
   };
 
-  const takeLibraryBook = (littleLibraryId:string, id:string) => {
-    fetch(`https://lite-api.herokuapp.com/little_libraries/${littleLibraryId}/library_books/${id}`, {
+  // MAKE THIS A HELPER
+  const takeLibraryBook = (libraryBookId: string) => {
+    fetch(`https://lite-api.herokuapp.com/little_libraries/${match.params.littleLibraryId}/library_books/${libraryBookId}`, {
       method: 'DELETE'
     })
     .then((resp) => resp.json())
     .then((json) => {
-      dispatch({type: 'SET_LIBRARY_BOOKS', littleLibraryId: littleLibraryId, libraryBooks: json})
+      dispatch({type: 'SET_LIBRARY_BOOKS', littleLibraryId: match.params.littleLibraryId, libraryBooks: json})
     });
   };
 
@@ -40,7 +42,7 @@ export default function LibraryBook({match}: RouteComponentProps<MatchParams>): 
   
   return(
     <Book book={libraryBook.book} currentId={libraryBook.id} nextId={parseInt(match.params.id)}>
-      <Link className="book__button" onClick={() => takeLibraryBook(match.params.littleLibraryId, match.params.id)} to={`/results/little_libraries/${match.params.littleLibraryId}`}><p className="book__button-text">take</p></Link>
+      <Link className="book__button" onClick={() => takeLibraryBook(match.params.id)} to={`/results/little_libraries/${match.params.littleLibraryId}`}><p className="book__button-text">take</p></Link>
     </Book> 
   );
 };

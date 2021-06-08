@@ -4,6 +4,7 @@ import BookCard from './BookCard';
 import {RouteComponentProps} from 'react-router-dom';
 import {AppState} from '../index';
 import Grid from './Grid';
+
 // component rendered through Route render prop takes MatchParams
 interface MatchParams {
   littleLibraryId: string;
@@ -26,6 +27,8 @@ export default function SponserBooks({match}: RouteComponentProps<MatchParams>):
     });
   };
 
+
+  // MAKE THIS A HELPER
   const createRequest = (e: React.MouseEvent<HTMLButtonElement>, littleLibraryId: string, sponserId: string, id: string) => {
     e.preventDefault();
     fetch(`https://lite-api.herokuapp.com/little_libraries/${littleLibraryId}/sponsers/${sponserId}/sponser_books/${id}/requests`, {
@@ -39,7 +42,7 @@ export default function SponserBooks({match}: RouteComponentProps<MatchParams>):
     });
   }
 
-  if(sponserBooks.length !== 0 && sponserBooks[0].sponser_id === parseInt(match.params.id)) {
+  if(sponserBooks.length !== 0 && sponserBooks[0].sponserId === parseInt(match.params.id)) {
     sponserBooksList = sponserBooks.map((sponserBook) => {
       return(
         <BookCard 
@@ -59,7 +62,7 @@ export default function SponserBooks({match}: RouteComponentProps<MatchParams>):
   };
 
   useEffect(() => {
-    if(sponserBooks.length === 0 || (sponserBooks[0] && sponserBooks[0].sponser_id !== parseInt(match.params.id))) {
+    if(sponserBooks.length === 0 || (sponserBooks[0] && sponserBooks[0].sponserId !== parseInt(match.params.id))) {
       getSponserBooks();
     };
   });

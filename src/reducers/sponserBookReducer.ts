@@ -2,8 +2,8 @@ import {BookState} from './bookReducer';
 
 const initialSponserBookState: SponserBookState = {
   id: 0,
-  sponser_id: 0,
-  book_id: 0,
+  sponserId: 0,
+  bookId: 0,
   book: {
     id: 0,
     title: "",
@@ -16,8 +16,8 @@ const initialSponserBookState: SponserBookState = {
 
 export interface SponserBookState {
   id: number;
-  sponser_id: number;
-  book_id: number;
+  sponserId: number;
+  bookId: number;
   book: BookState;
 };
 
@@ -27,8 +27,8 @@ export default function sponserBookReducer(state = initialSponserBookState, acti
       return {
         ...state,
         id: action.id,
-        sponser_id: action.sponser_id,
-        book_id: action.book_id,
+        sponserId: action.sponserId,
+        bookId: action.bookId,
         book: action.book
       };
     default:

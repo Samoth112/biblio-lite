@@ -5,6 +5,7 @@ import {AppState} from '../index';
 import BookCard from './BookCard';
 import BookFormCard from './BookFormCard';
 import Grid from './Grid';
+
 // Components rendered through Route render prop takes MatchParams
 interface MatchParams {
   id: string;
@@ -37,6 +38,7 @@ export default function LibraryBooks({match}: RouteComponentProps<MatchParams>):
     });
   };
 
+  // MAKE THIS A HELPER
   const takeLibraryBook = (libraryBookId: string) => {
     fetch(`https://lite-api.herokuapp.com/little_libraries/${match.params.id}/library_books/${libraryBookId}`, {
       method: 'DELETE'
