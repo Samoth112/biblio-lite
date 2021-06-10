@@ -21,7 +21,8 @@ export default function SponserBook({match}: RouteComponentProps<MatchParams>): 
     })
     .then((resp) => resp.json())
     .then((json) => {
-      dispatch({type: "SET_SPONSER_BOOK", id: json.id, sponserId: json.sponser_id, bookId: json.book_id, book: json.book});
+      dispatch({type: "SET_SPONSER_BOOK", id: json.id, sponser_id: json.sponser_id, book_id: json.book_id, book: json.book});
+      // property names should match Rails syntax to make typing easier
     });
   };
 

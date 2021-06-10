@@ -28,7 +28,7 @@ export default function SponserBooks({match}: RouteComponentProps<MatchParams>):
     });
   };
 
-  if(sponserBooks.length !== 0 && sponserBooks[0].sponserId === parseInt(match.params.id)) {
+  if(sponserBooks.length !== 0 && sponserBooks[0].sponser_id === parseInt(match.params.id)) {
     sponserBooksList = sponserBooks.map((sponserBook) => {
       return(
         <BookCard 
@@ -48,7 +48,7 @@ export default function SponserBooks({match}: RouteComponentProps<MatchParams>):
   };
 
   useEffect(() => {
-    if(sponserBooks.length === 0 || (sponserBooks[0] && sponserBooks[0].sponserId !== parseInt(match.params.id))) {
+    if(sponserBooks.length === 0 || (sponserBooks[0] && sponserBooks[0].sponser_id !== parseInt(match.params.id))) {
       getSponserBooks();
     };
   });

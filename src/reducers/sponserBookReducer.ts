@@ -2,8 +2,8 @@ import {BookState} from './bookReducer';
 
 const initialSponserBookState: SponserBookState = {
   id: 0,
-  sponserId: 0,
-  bookId: 0,
+  sponser_id: 0,
+  book_id: 0,
   book: {
     id: 0,
     title: "",
@@ -16,9 +16,10 @@ const initialSponserBookState: SponserBookState = {
 
 export interface SponserBookState {
   id: number;
-  sponserId: number;
-  bookId: number;
+  sponser_id: number;
+  book_id: number;
   book: BookState;
+  // properties from Rails object
 };
 
 export default function sponserBookReducer(state = initialSponserBookState, action: {type: string} & SponserBookState): SponserBookState {
@@ -27,8 +28,8 @@ export default function sponserBookReducer(state = initialSponserBookState, acti
       return {
         ...state,
         id: action.id,
-        sponserId: action.sponserId,
-        bookId: action.bookId,
+        sponser_id: action.sponser_id,
+        book_id: action.book_id,
         book: action.book
       };
     default:
