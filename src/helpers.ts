@@ -17,3 +17,16 @@ export const takeLibraryBook = (dispatch: Dispatch<{type: string; littleLibraryI
     };
   });
 };
+
+export const createRequest = (e: React.MouseEvent<HTMLButtonElement>, littleLibraryId: string, sponserId: string, id: string) => {
+  e.preventDefault();
+  fetch(`https://lite-api.herokuapp.com/little_libraries/${littleLibraryId}/sponsers/${sponserId}/sponser_books/${id}/requests`, {
+    method: 'POST'
+  })
+  .then((resp) => resp.json())
+  .then((json) => {
+    if(json.id) {
+      alert("Your request has been sent.");
+    };
+  });
+}
