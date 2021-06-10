@@ -38,7 +38,7 @@ export default function LibraryCard({className, grid, id, charter, name, sponser
           <h3 className="library-card__name">{name}</h3>
         </section>
 
-        {className === "library__library-card--no-border" ? 
+        {className === "library__library-card" ? 
           <section className="library__library-card-sponsers-list">
             <Grid className="library__library-card-sponsers-list-grid">
               {sponsersList}
