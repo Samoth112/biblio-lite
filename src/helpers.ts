@@ -1,4 +1,5 @@
-import { Dispatch } from "react";
+import {changeForm} from './actions/changeForm';
+import React, {Dispatch} from "react";
 import {LibraryBookState} from './reducers/libraryBookReducer';
 
 export const takeLibraryBook = (dispatch: Dispatch<{type: string; littleLibraryId: string; libraryBooks: LibraryBookState[]}>, littleLibraryId: string, libraryBookId: string) => {
@@ -30,3 +31,11 @@ export const createRequest = (e: React.MouseEvent<HTMLButtonElement>, littleLibr
     };
   });
 }
+
+export const changeHandlerClosure = (dispatch: Dispatch<{type: string, e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>}>) => {
+  return (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    e.preventDefault();
+    const action = changeForm(e);
+    dispatch(action);
+  }
+};

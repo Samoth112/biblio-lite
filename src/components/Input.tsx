@@ -1,6 +1,6 @@
 import React from 'react';
 import {useDispatch} from 'react-redux';
-import {changeForm} from '../actions/changeForm';
+import {changeHandlerClosure} from '../helpers';
 
 // reusable component
 interface InputProps {
@@ -13,35 +13,22 @@ interface InputProps {
 
 export default function Input({type, name, dataActionType, dataAuthorIndex, value}: InputProps): React.ReactElement  {
   const dispatch = useDispatch();
-  const changeHandler = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    e.preventDefault();
-    const action = changeForm(e);
-    dispatch(action);
-  };
+  const changeHandler = changeHandlerClosure(dispatch);
 
   // Input components are controlled by their respecitve formReducers
-  // SPLIT THESE UP!
   return(
     <div className="input">
-      {type !== 'submit' ? 
+      {
         dataAuthorIndex ?
           <>
             <input required className='input__input' type={type} name={name} data-action-type={dataActionType} data-author-index={dataAuthorIndex} value={value} onChange={changeHandler}/>
             <label className='input__label'>{name}</label>
           </>
         :
-          type === "textarea" ?
-            <>
-              <textarea required className='input__textarea' name={name} data-action-type={dataActionType} value={value} onChange={changeHandler} />
-              <label className='input__label'>{name}</label>
-            </>
-          :
-            <>
-              <input required className='input__input' type={type} name={name} data-action-type={dataActionType} value={value} onChange={changeHandler}/>
-              <label className='input__label'>{name}</label>
-            </>
-      :
-        <input className='input__submit' type='submit' value={value} />
+          <>
+            <input required className='input__input' type={type} name={name} data-action-type={dataActionType} value={value} onChange={changeHandler}/>
+            <label className='input__label'>{name}</label>
+          </>
       } 
     </div>
   )

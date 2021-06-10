@@ -3,6 +3,8 @@ import {useSelector, useDispatch} from 'react-redux';
 import {AppState} from '../index';
 import Form from './Form';
 import Input from './Input';
+import InputTextArea from './InputTextArea';
+import InputSubmit from './InputSubmit';
 
 // THIS PROP IS UNNECESSARY, CAN GET littleLibraryId FROM STATE,
 // SINCE THE LITTLELIBRARY STATE (selectedLib in resultsReducer) WILL BE SET BEFORE USERS CAN
@@ -45,12 +47,12 @@ export default function LibraryBookForm({littleLibraryId}: LibraryBookFormProps)
       <Input type="text" name="title" dataActionType="SET_TITLE" value={libraryBookFormData.book.title} />
       <p>*if there is no subtitle, enter a single blank space</p>
       <Input type="text" name="subtitle" dataActionType="SET_SUBTITLE" value={libraryBookFormData.book.subtitle} />
-      <Input type="textarea" name="description" dataActionType="SET_DESCRIPTION" value={libraryBookFormData.book.description} />
+      <InputTextArea name="description" dataActionType="SET_DESCRIPTION" value={libraryBookFormData.book.description} />
       <Input type="text" name="image url" dataActionType="SET_IMGURL" value={libraryBookFormData.book.imgUrl} />
       <p onClick={addAuthor}>add author</p>
       {authorInputs}
       <Input type="text" name="isbn" dataActionType="SET_ISBN" value={libraryBookFormData.book.isbn} />
-      <Input type="submit" name="submit" value="create library book" />
+      <InputSubmit value="create library book" />
     </Form>
   );
 };

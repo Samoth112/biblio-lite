@@ -3,6 +3,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {AppState} from '../index';
 import Form from './Form';
 import Input from './Input';
+import InputSubmit from './InputSubmit';
 
 export default function AddressSearchForm(): React.ReactElement  {
   const addressSearchFormData = useSelector((state: AppState ) => state.addressSearchForm.formData);
@@ -34,7 +35,7 @@ export default function AddressSearchForm(): React.ReactElement  {
       <Input type="text" name="street" dataActionType="SET_STREET" value={addressSearchFormData.street} />
       <Input type="text" name="city" dataActionType="SET_CITY" value={addressSearchFormData.city} />
       <Input type="text" name="state" dataActionType="SET_STATE" value={addressSearchFormData.state} />
-      <Input type="submit" name="submit" value="search" />
+      <InputSubmit value="search" />
     </Form>
   );
 }
