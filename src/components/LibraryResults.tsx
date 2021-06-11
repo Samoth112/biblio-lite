@@ -70,6 +70,9 @@ export default function LibraryResults(): React.ReactElement {
     <section className="library-results">
       <Grid className="library-results__grid" >
         <Switch>
+          <Route path="/results/little_libraries/:id" render={(props) => 
+            <Library {...props} />
+          } />
           <Route path="/results" render={(props) =>
             <>
               <Map {...props} className="map" grid="map-grid" />
@@ -79,9 +82,6 @@ export default function LibraryResults(): React.ReactElement {
                 </Grid>
               </section>
             </>
-          } />
-          <Route path="/results/little_libraries/:id" render={(props) => 
-            <Library {...props} />
           } />
         </Switch>
       </Grid>
