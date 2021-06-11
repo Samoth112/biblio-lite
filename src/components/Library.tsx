@@ -53,13 +53,17 @@ export default function Library({match}: RouteComponentProps<MatchParams>): Reac
   return(
     <section className="library">
       <Grid className="library__grid">
-        <LibraryCard className="library__library-card" grid="library__library-card-grid" id={lib.id} charter={dewey_style_charter} name={name} sponsers={lib.sponsers} />
         <Switch>
           <Route path="/results/little_libraries/:littleLibraryId/sponsers/:sponserId/sponser_books/:id" render={(props) => <SponserBook {...props} /> } />
           <Route path="/results/little_libraries/:littleLibraryId/sponsers/:id" render={(props) => <SponserBooks {...props} />} />
           <Route path="/results/little_libraries/:littleLibraryId/library_books/new" render={(props) => <LibraryBooksNew {...props} /> } />
           <Route path="/results/little_libraries/:littleLibraryId/library_books/:id" render={(props) => <LibraryBook {...props} />} />
-          <Route path="/results/little_libraries/:id" render={(props) => <LibraryBooks {...props} />} />
+          <Route path="/results/little_libraries/:id" render={(props) => 
+            <>
+              <LibraryCard className="library__library-card" grid="library__library-card-grid" id={lib.id} charter={dewey_style_charter} name={name} sponsers={lib.sponsers} />
+              <LibraryBooks {...props} />
+            </>
+          } />
         </Switch>
       </Grid>
     </section>

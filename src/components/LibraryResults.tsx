@@ -69,17 +69,17 @@ export default function LibraryResults(): React.ReactElement {
   return(
     <section className="library-results">
       <Grid className="library-results__grid" >
-        <Route path="/results" render={(props) =>
-          <Map {...props} className="map" grid="map-grid" />
-        } />
         <Switch>
-          <Route exact path="/results">
-            <section className="library-results__libraries-list">
-              <Grid className="library-results__libraries-list-grid">
-                {librariesList}
-              </Grid>
-            </section>
-          </Route>
+          <Route path="/results" render={(props) =>
+            <>
+              <Map {...props} className="map" grid="map-grid" />
+              <section className="library-results__libraries-list">
+                <Grid className="library-results__libraries-list-grid">
+                  {librariesList}
+                </Grid>
+              </section>
+            </>
+          } />
           <Route path="/results/little_libraries/:id" render={(props) => 
             <Library {...props} />
           } />
