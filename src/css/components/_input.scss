@@ -70,5 +70,6 @@
 }
 .input__select {
   @include input__input;
+  font-size: 1rem;
 }
 
