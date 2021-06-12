@@ -1,13 +1,13 @@
 import React, {useEffect} from 'react';
 import {useSelector} from 'react-redux';
-import {Switch, Route, withRouter} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import {AppState} from '../index';
 import Grid from './Grid';
 import Library from './Library';
 import LibraryCard from './LibraryCard';
 import Map from './Map';
 
-function LibraryResults(): React.ReactElement {
+export default function LibraryResults(): React.ReactElement {
   const lat = useSelector((state: AppState) => state.results.coordinates.center.lat);
   const lng = useSelector((state: AppState) => state.results.coordinates.center.lng);
   const libraries = useSelector((state: AppState) => state.results.libraries);
@@ -87,6 +87,4 @@ function LibraryResults(): React.ReactElement {
       </Grid>
     </section>
   );
-}; 
-
-export default withRouter(LibraryResults);
+};
