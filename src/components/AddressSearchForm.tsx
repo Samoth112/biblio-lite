@@ -17,7 +17,7 @@ export default function AddressSearchForm(): React.ReactElement  {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'https://biblio-lite.herokuapp.com'
+        'Access-Control-Allow-Origin': 'https://biblio-lite.netlify.app'
       },
       // for now, only search for this address while the database is so limited.
       body: JSON.stringify({street: "1927 Bartle Ave.", city: "Scotch Plains", state: "NJ"})
