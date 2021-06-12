@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useSelector} from 'react-redux';
-import {Switch, Route, useLocation} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import {AppState} from '../index';
 import Grid from './Grid';
 import Library from './Library';
@@ -11,7 +11,6 @@ export default function LibraryResults(): React.ReactElement {
   const lat = useSelector((state: AppState) => state.results.coordinates.center.lat);
   const lng = useSelector((state: AppState) => state.results.coordinates.center.lng);
   const libraries = useSelector((state: AppState) => state.results.libraries);
-  const location = useLocation();
   const loadGMaps = (callback: () => void) => {  
     const existingScript = document.getElementById('googleMaps');  
     if (!existingScript) {
@@ -41,7 +40,7 @@ export default function LibraryResults(): React.ReactElement {
         });
       }); 
     });
-  }, [lat, lng, libraries, location]) ;
+  }) ;
   
   const librariesList = libraries.map((lib) => {
     let dewey_style_charter = "";
