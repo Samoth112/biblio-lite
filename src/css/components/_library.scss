@@ -1,8 +1,10 @@
 @use "./library-results";
 
 .library {
+  background-color: #F2CA52;
   grid-column: 1 / span 12;
   grid-row: 1 / span 2;
+  z-index: 1;
 }
 
 .library__grid {
