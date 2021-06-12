@@ -10,8 +10,8 @@
 }
 
 .book-card {
+  border-bottom: 2px solid white;
   border-left: 2px solid white;
-  grid-row: 1 / span 1;
   overflow: clip;
   position: relative;
 }

@@ -7,15 +7,14 @@
 
 .library__grid {
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  grid-template-rows: var(--map-height) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
 }
 
 .library__library-card {
   @include library-results.library-results__library-card--libraries-list-item;
   border: none;
-  border-top: 2px solid white;
   grid-column: 1 / span 1;
-  grid-row: 2 / span 1;
+  grid-row: 1 / span 2;
   overflow-y: scroll;
   padding-bottom: 0;
   scrollbar-width: none;
