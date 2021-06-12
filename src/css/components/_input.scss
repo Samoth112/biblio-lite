@@ -68,3 +68,7 @@
   @include input__input;
   height: 9rem;
 }
+.input__select {
+  @include input__input;
+}
+

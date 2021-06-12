@@ -32,8 +32,8 @@ export const createRequest = (e: React.MouseEvent<HTMLButtonElement>, littleLibr
   });
 }
 
-export const changeHandlerClosure = (dispatch: Dispatch<{type: string, e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>}>) => {
-  return (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+export const changeHandlerClosure = (dispatch: Dispatch<{type: string, e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>}>) => {
+  return (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     e.preventDefault();
     const action = changeForm(e);
     dispatch(action);
