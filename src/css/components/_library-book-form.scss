@@ -18,6 +18,11 @@
         @include mixins.form-el;
       }
 
+      .library-book-form__textarea {
+        @include mixins.form-el;
+        height: 9rem;
+      }
+
       .library-book-form__input:focus, 
       .library-book-form__input:valid, 
       .input__textarea:focus, 

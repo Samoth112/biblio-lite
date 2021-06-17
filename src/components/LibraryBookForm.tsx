@@ -47,7 +47,7 @@ export default function LibraryBookForm({littleLibraryId}: LibraryBookFormProps)
       <Input block="library-book-form" name="title" dataActionType="SET_TITLE" value={libraryBookFormData.book.title} />
       <p>*if there is no subtitle, enter a single blank space</p>
       <Input block="library-book-form" name="subtitle" dataActionType="SET_SUBTITLE" value={libraryBookFormData.book.subtitle} />
-      <InputTextArea name="description" dataActionType="SET_DESCRIPTION" value={libraryBookFormData.book.description} />
+      <InputTextArea block="library-book-form" name="description" dataActionType="SET_DESCRIPTION" value={libraryBookFormData.book.description} />
       <Input block="library-book-form" name="image url" dataActionType="SET_IMGURL" value={libraryBookFormData.book.imgUrl} />
       <p onClick={addAuthor}>add author</p>
       {authorInputs}
