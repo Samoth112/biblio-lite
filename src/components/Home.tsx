@@ -20,13 +20,13 @@ export default function Home(): React.ReactElement {
           </Nav>
         </Header>
         <section className="home__address-search-form">
-            <Grid className="home__address-search-form-grid">
-              <p className="home__address-search-form-headline">
-                Enter Your Address to Find Books Near You
-              </p>
-              <AddressSearchForm />
-            </Grid>
-          </section>
+          <Grid className="home__address-search-form-grid">
+            <p className="home__address-search-form-headline">
+              Enter Your Address to Find Books Near You
+            </p>
+            <AddressSearchForm />
+          </Grid>
+        </section>
       </Grid>
       {/* modal is temporary and sits outside of Grid so is not a part of design system */}
       <div id="home__modal" onClick={closeModal}>
