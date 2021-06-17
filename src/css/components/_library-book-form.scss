@@ -25,16 +25,16 @@
 
       .library-book-form__input:focus, 
       .library-book-form__input:valid, 
-      .input__textarea:focus, 
-      .input__textarea:valid {
+      .library-book-form__textarea:focus, 
+      .library-book-form__textarea:valid {
         border-color: white;
         outline: none;
       }
 
       .library-book-form__input:focus + label, 
       .library-book-form__input:valid + label, 
-      .input__textarea:focus + label, 
-      .input__textarea:valid + label {
+      .library-book-form__textarea:focus + label, 
+      .library-book-form__textarea:valid + label {
         font-size: .75rem;
         padding: .25rem 1rem;
       }
