@@ -1,12 +1,26 @@
+@use '../mixins';
+
 .address-search-form {
-  color: black;
-  font-family: 'Poppins';
-  font-size: 1rem;
+  @include mixins.form;
   grid-column: 8 / span 3;
   grid-row: 1 / span 1;
+
+  .address-search-form__grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: max-content;
+  
+    .address-search-form__input-wrapper {
+      @include mixins.input-wrapper;
+
+      .address-search-form__input {
+        @include mixins.input;
+      }
+
+      .address-search-form__label {
+        @include mixins.label;
+      }
+    }
+  }
 }
 
-.address-search-form-grid {
-  grid-template-columns: minmax(0, 1fr);
-  grid-auto-rows: max-content;
-}
+

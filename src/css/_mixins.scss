@@ -1,5 +1,37 @@
-@mixin grid {
-  display: grid;
+@mixin form {
+  color: black;
+  font-family: 'Poppins';
+  font-size: 1rem;
+}
+
+@mixin input-wrapper {
+  padding-bottom: 2rem;
   position: relative;
 }
 
+@mixin input {
+  background-color: transparent;
+  border: 1px solid rgba(0,0,0,0.6);
+  border-radius: 4px;
+  font-family: 'Poppins';
+  font-size: .875em;
+  height: 3rem;
+  padding: 1.25em 1em .25em;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+@mixin label {
+  border: 1px solid transparent;
+  color: black;
+  font-family: 'Poppins';
+  font-size: 1rem;
+  left: 0;
+  padding: 1em 1em .5em;
+  position: absolute;
+  top: 0;
+  transition: padding .25s, font-size .25s;
+  width: 100%;
+  z-index: 0;
+}

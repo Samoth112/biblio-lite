@@ -24,6 +24,12 @@ export default function Home(): React.ReactElement {
             <p className="home__address-search-form-headline">
               Enter Your Address to Find Books Near You
             </p>
+            {/*
+            AddressSearchForm is not a reusalbe component, but is
+            its own component so that it can maintain its own state
+            and not cause Home to rerender every time the form changes.
+            Only the AddressSearchForm will rerender.
+            */}
             <AddressSearchForm />
           </Grid>
         </section>

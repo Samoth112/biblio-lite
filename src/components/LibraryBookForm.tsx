@@ -17,8 +17,8 @@ export default function LibraryBookForm({littleLibraryId}: LibraryBookFormProps)
   const libraryBookFormData = useSelector((state: AppState) => state.libraryBookForm.formData);
   const authorInputs = libraryBookFormData.book.authors.map((author, index) => 
     <div key={index}>
-      <Input type="text" name="first name" dataActionType="SET_AUTHOR_FIRST_NAME" dataAuthorIndex={index.toString()} value={author.firstName} />
-      <Input type="text" name="last name" dataActionType="SET_AUTHOR_LAST_NAME" dataAuthorIndex={index.toString()} value={author.lastName} />
+      <Input block="library-book-form" name="first name" dataActionType="SET_AUTHOR_FIRST_NAME" dataAuthorIndex={index.toString()} value={author.firstName} />
+      <Input block="library-book-form" name="last name" dataActionType="SET_AUTHOR_LAST_NAME" dataAuthorIndex={index.toString()} value={author.lastName} />
     </div>
   );
   const dispatch = useDispatch();
@@ -44,14 +44,14 @@ export default function LibraryBookForm({littleLibraryId}: LibraryBookFormProps)
 
   return(
     <Form className="library-book-form" grid="library-book-form__grid" submitHandler={createLibraryBook}>
-      <Input type="text" name="title" dataActionType="SET_TITLE" value={libraryBookFormData.book.title} />
+      <Input block="library-book-form" name="title" dataActionType="SET_TITLE" value={libraryBookFormData.book.title} />
       <p>*if there is no subtitle, enter a single blank space</p>
-      <Input type="text" name="subtitle" dataActionType="SET_SUBTITLE" value={libraryBookFormData.book.subtitle} />
+      <Input block="library-book-form" name="subtitle" dataActionType="SET_SUBTITLE" value={libraryBookFormData.book.subtitle} />
       <InputTextArea name="description" dataActionType="SET_DESCRIPTION" value={libraryBookFormData.book.description} />
-      <Input type="text" name="image url" dataActionType="SET_IMGURL" value={libraryBookFormData.book.imgUrl} />
+      <Input block="library-book-form" name="image url" dataActionType="SET_IMGURL" value={libraryBookFormData.book.imgUrl} />
       <p onClick={addAuthor}>add author</p>
       {authorInputs}
-      <Input type="text" name="isbn" dataActionType="SET_ISBN" value={libraryBookFormData.book.isbn} />
+      <Input block="library-book-form" name="isbn" dataActionType="SET_ISBN" value={libraryBookFormData.book.isbn} />
       <InputSubmit value="create library book" />
     </Form>
   );
