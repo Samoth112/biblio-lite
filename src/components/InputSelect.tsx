@@ -16,7 +16,7 @@ export default function InputSelect({block, name, dataActionType, value}: InputT
   return(
     <div className={`${block}__form-el-wrapper`}>
       <select required className={`${block}__select`} name={name} data-action-type={dataActionType} value={value} onChange={changeHandler}>
-        <option value="">Select a state</option>
+        <option value=""></option>
         <option value="Alabama">Alabama</option>
         <option value="Alaska">Alaska</option>
         <option value="Arizona">Arizona</option>
