@@ -17,7 +17,7 @@ export default function Input({block, name, dataActionType, dataAuthorIndex, val
 
   // Input components are controlled by their respecitve formReducers
   return(
-    <div className={`${block}__input-wrapper`}>
+    <div className={`${block}__form-el-wrapper`}>
       {
         dataAuthorIndex ?
           <>

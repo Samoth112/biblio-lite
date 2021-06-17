@@ -35,7 +35,7 @@ export default function AddressSearchForm(): React.ReactElement  {
     <Form className="address-search-form" grid="address-search-form__grid" submitHandler={submitAddress}>
       <Input block="address-search-form" name="street" dataActionType="SET_STREET" value={addressSearchFormData.street} />
       <Input block="address-search-form" name="city" dataActionType="SET_CITY" value={addressSearchFormData.city} />
-      <InputSelect name="state" dataActionType="SET_STATE" value={addressSearchFormData.state} />
+      <InputSelect block="address-search-form" name="state" dataActionType="SET_STATE" value={addressSearchFormData.state} />
       <InputSubmit value="search" />
     </Form>
   );

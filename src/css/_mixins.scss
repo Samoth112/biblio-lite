@@ -4,12 +4,12 @@
   font-size: 1rem;
 }
 
-@mixin input-wrapper {
+@mixin form-el-wrapper {
   padding-bottom: 2rem;
   position: relative;
 }
 
-@mixin input {
+@mixin form-el {
   background-color: transparent;
   border: 1px solid rgba(0,0,0,0.6);
   border-radius: 4px;

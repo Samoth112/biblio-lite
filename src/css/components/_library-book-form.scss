@@ -11,11 +11,11 @@
     grid-auto-rows: max-content;
     padding: 2rem;
 
-    .library-book-form__input-wrapper {
-      @include mixins.input-wrapper;
+    .library-book-form__form-el-wrapper {
+      @include mixins.form-el-wrapper;
 
       .library-book-form__input {
-        @include mixins.input;
+        @include mixins.form-el;
       }
 
       .library-book-form__input:focus, 

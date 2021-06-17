@@ -3,18 +3,19 @@ import {useDispatch} from 'react-redux';
 import {changeHandlerClosure} from '../helpers';
 
 interface InputTextAreaProps {
+  block: string;
   name: string;
   dataActionType?: string;
   value: string;
 }
 
-export default function InputSelect({name, dataActionType, value}: InputTextAreaProps): React.ReactElement {
+export default function InputSelect({block, name, dataActionType, value}: InputTextAreaProps): React.ReactElement {
   const dispatch = useDispatch();
   const changeHandler = changeHandlerClosure(dispatch);
   
   return(
-    <div className="input">
-      <select required className='input__select' name={name} data-action-type={dataActionType} value={value} onChange={changeHandler}>
+    <div className={`${block}__form-el-wrapper`}>
+      <select required className={`${block}__select`} name={name} data-action-type={dataActionType} value={value} onChange={changeHandler}>
         <option value="">Select a state</option>
         <option value="Alabama">Alabama</option>
         <option value="Alaska">Alaska</option>
@@ -67,6 +68,7 @@ export default function InputSelect({name, dataActionType, value}: InputTextArea
         <option value="Wisconsin">Wisconsin</option>
         <option value="Wyoming">Wyoming</option>
       </select>
+      <label className={`${block}__label`}>{name}</label>
     </div>
   );
 };
