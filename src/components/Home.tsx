@@ -18,7 +18,8 @@ export default function Home(): React.ReactElement {
               Biblio
             </p>
           </Nav>
-          <section className="home__address-search-form">
+        </Header>
+        <section className="home__address-search-form">
             <Grid className="home__address-search-form-grid">
               <p className="home__address-search-form-headline">
                 Enter Your Address to Find Books Near You
@@ -26,7 +27,6 @@ export default function Home(): React.ReactElement {
               <AddressSearchForm />
             </Grid>
           </section>
-        </Header>
       </Grid>
       {/* modal is temporary and sits outside of Grid so is not a part of design system */}
       <div id="home__modal" onClick={closeModal}>
