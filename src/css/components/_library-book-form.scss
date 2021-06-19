@@ -41,11 +41,11 @@
         padding: .25rem 1rem;
       }
 
-      .address-search-form__submit {
+      .library-book-form__submit {
         @include mixins.submit;
       }
 
-      .address-search-form__submit:focus {
+      .library-book-form__submit:focus {
         background-color: #F2CA52;
         box-shadow: 4px 4px black, 4px 4px black, 4px 4px black, 4px 4px black;
         color: white;
