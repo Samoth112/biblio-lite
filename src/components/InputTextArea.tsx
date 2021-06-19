@@ -15,8 +15,8 @@ export default function InputTextArea({block, name, dataActionType, value}: Inpu
   
   return(
     <div className={`${block}__form-el-wrapper`}>
+      <p>{name}</p>
       <textarea required className={`${block}__textarea`} name={name} data-action-type={dataActionType} value={value} onChange={changeHandler} />
-      <label className={`${block}__label`}>{name}</label>
     </div>
   );
 };

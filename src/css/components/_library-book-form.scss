@@ -23,6 +23,10 @@
         height: 9rem;
       }
 
+      .library-book-form__label {
+        @include mixins.label;
+      }
+
       .library-book-form__input:focus, 
       .library-book-form__input:valid, 
       .library-book-form__textarea:focus, 
@@ -32,15 +36,9 @@
       }
 
       .library-book-form__input:focus + label, 
-      .library-book-form__input:valid + label, 
-      .library-book-form__textarea:focus + label, 
-      .library-book-form__textarea:valid + label {
+      .library-book-form__input:valid + label {
         font-size: .75rem;
         padding: .25rem 1rem;
-      }
-
-      .library-book-form__label {
-        @include mixins.label;
       }
     }
   
