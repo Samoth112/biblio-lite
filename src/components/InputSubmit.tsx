@@ -1,13 +1,14 @@
 import React from 'react';
 
-interface InputSubmitProps { 
+interface InputSubmitProps {
+  block: string; 
   value: string;
 }
 
-export default function InputSubmit({value}: InputSubmitProps): React.ReactElement {
+export default function InputSubmit({block, value}: InputSubmitProps): React.ReactElement {
   return(
-    <div className="input"> 
-      <input className='input__submit' type='submit' value={value} />
+    <div className={`${block}__form-el-wrapper`}> 
+      <input className={`${block}__submit`} type='submit' value={value} />
     </div>
   );
 };

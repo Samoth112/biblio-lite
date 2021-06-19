@@ -52,7 +52,7 @@ export default function LibraryBookForm({littleLibraryId}: LibraryBookFormProps)
       <p onClick={addAuthor}>add author</p>
       {authorInputs}
       <Input block="library-book-form" name="isbn" dataActionType="SET_ISBN" value={libraryBookFormData.book.isbn} />
-      <InputSubmit value="create library book" />
+      <InputSubmit block="library-book-form" value="create library book" />
     </Form>
   );
 };
